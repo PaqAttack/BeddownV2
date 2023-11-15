@@ -1,6 +1,6 @@
 package com.paqattack.gui_template;
 
-import com.example.updated_beddown.windows.AnchorPaneMain;
+import com.paqattack.gui_template.windows.AnchorPaneMain;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

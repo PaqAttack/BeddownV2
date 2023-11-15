@@ -1,4 +1,4 @@
-package com.example.updated_beddown.windows;
+package com.paqattack.gui_template.windows;
 
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class WindowUtils {
     private static final Logger logger = Logger.getLogger(WindowUtils.class.getName());
 
-    public static final String FXML_PATH = "/com/example/updated_beddown/windowFXMLs/";
+    public static final String FXML_PATH = "/com/paqattack/gui_template/windowFXMLs/";
 
     private WindowUtils() {
         throw new IllegalStateException("Utility class");
