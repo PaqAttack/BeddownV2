@@ -1,11 +1,14 @@
 package com.paqattack.gui_template.windows;
 
+import com.paqattack.gui_template.ResourceManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.logging.Logger;
 
 public class AnchorPaneMain  extends AnchorPane {
@@ -17,7 +20,6 @@ public class AnchorPaneMain  extends AnchorPane {
     @FXML public Button select;
 
     public AnchorPaneMain() {
-        System.out.println(WindowUtils.FXML_PATH + "AnchorPaneMain.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WindowUtils.FXML_PATH + "AnchorPaneMain.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -26,7 +28,13 @@ public class AnchorPaneMain  extends AnchorPane {
             fxmlLoader.load();
             logger.info("FXML file (AnchorPaneMain) loaded successfully");
 
-            select.setOnAction(event -> onSelectButtonClick());
+            select.setOnAction(event -> {
+                try {
+                    onSelectButtonClick();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,7 +42,10 @@ public class AnchorPaneMain  extends AnchorPane {
         }
     }
 
-    public void onSelectButtonClick() {
+    public void onSelectButtonClick() throws IOException {
+        ResourceManager rm = new ResourceManager("/");
+        BufferedReader br = rm.getBufferedReaderResource("test.txt");
+        System.out.println(br.readLine());
         logger.info("Select button clicked!");
     }
 }

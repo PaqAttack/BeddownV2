@@ -25,7 +25,7 @@ public class MyApplication extends Application {
 
     public static void main(String[] args) {
         try {
-            LogManager.getLogManager().readConfiguration(MyApplication.class.getResourceAsStream("logging.properties"));
+            LogManager.getLogManager().readConfiguration(MyApplication.class.getResourceAsStream("/logging.properties"));
         } catch (IOException e) {
             logger.warning("Error loading logging configuration: " + e.getMessage());
         }
