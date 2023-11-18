@@ -1,42 +1,55 @@
 package com.paqattack.gui_template.windows;
 
+import com.paqattack.gui_template.WindowManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Sidebar extends VBox {
     private static final Logger logger = Logger.getLogger(Sidebar.class.getName());
+    WindowManager windowManager;
 
+    //region FXML Controls
+    @FXML Button startUpBtn;
     @FXML
-    public Label label1;
+    private Button manageBtn;
     @FXML
-    public Label label2;
+    private Button checkBtn;
     @FXML
-    public Label label3;
+    private Button beddownBtn;
     @FXML
-    public Label label4;
+    private Button reportBtn;
 
-    public Sidebar() {
+    //endregion
+
+    public Sidebar(WindowManager windowManager) {
+        this.windowManager = windowManager;
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WindowUtils.FXML_PATH + "Sidebar.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try {
             fxmlLoader.load();
-            logger.info("FXML file (Sidebar) loaded successfully");
+            logger.log(Level.INFO, "FXML file loaded successfully from {0}", getClass().getName());
+
         } catch (Exception e) {
-            logger.warning("Error loading FXML file (Sidebar.fxml): " + e.getMessage());
+            logger.log(Level.WARNING, "Error loading FXML file from {0}", getClass().getName());
         }
+
+        setUpButtonLinks();
     }
 
-    public void setLabelText(String msg) {
-        label1.setText(msg);
-        label2.setText(msg);
-        label3.setText(msg);
-        label4.setText(msg);
+    private void setUpButtonLinks() {
+        startUpBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.STARTUP));
+        manageBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.MANAGE));
+        checkBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT));
+        beddownBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.BEDDOWN));
+        reportBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.REPORTS));
     }
 
 }

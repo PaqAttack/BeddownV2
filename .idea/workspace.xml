@@ -5,10 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="Working on RSS Manager">
+      <change afterPath="$PROJECT_DIR$/MyLog.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/help/BedFileHelper.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Rank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/utils/DateTimeComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Reports.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cssStyles/myStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/help/BedFileHelper.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Beddown.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Manage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Reports.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/StartUp.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/MyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/AnchorPaneMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/AnchorPaneMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/AnchorPaneMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Beddown.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/AnchorPaneMain.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/MainWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Sidebar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Sidebar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +49,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -34,21 +66,24 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2YCUAa7JognitmqgwbbaKUal2fb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Testing",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/cpaqu/IdeaProjects/GUI_Template/src/main/java/com/paqattack/gui_template",
+    "last_opened_file_path": "C:/Java/BeddownV2/src/main/resources/windowFXMLs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,19 +98,25 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Java\BeddownV2\src\main\resources\windowFXMLs" />
+      <recent name="C:\Java\BeddownV2\src\main\resources\cssStyles" />
       <recent name="C:\Users\cpaqu\IdeaProjects\GUI_Template\src\main\java\com\paqattack\gui_template" />
       <recent name="C:\Users\cpaqu\IdeaProjects\GUI_Template\src\main\resources\com\paqattack\gui_template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Java\BeddownV2\src\main\resources\help" />
       <recent name="C:\Java\GUI_Template\src\main\resources" />
       <recent name="C:\Java\GUI_Template\src\main\resources\test" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.paqattack.gui_template.windows" />
       <recent name="com.paqattack.gui_template" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.paqattack.gui_template.ProgramEntry" />
       <module name="GUI_Template" />
       <method v="2">
@@ -93,6 +134,7 @@
       <updated>1700028914469</updated>
       <workItem from="1700028915574" duration="1148000" />
       <workItem from="1700272599774" duration="3032000" />
+      <workItem from="1700279739226" duration="31307000" />
     </task>
     <task id="LOCAL-00001" summary="Working on RSS Manager">
       <option name="closed" value="true" />
@@ -109,6 +151,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Working on RSS Manager" />
     <option name="LAST_COMMIT_MESSAGE" value="Working on RSS Manager" />
   </component>

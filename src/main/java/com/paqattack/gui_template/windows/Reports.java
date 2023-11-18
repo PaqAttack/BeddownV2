@@ -2,19 +2,19 @@ package com.paqattack.gui_template.windows;
 
 import com.paqattack.gui_template.WindowManager;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MainWindow extends BorderPane {
+public class Reports extends AnchorPane {
     WindowManager windowManager;
-    private static final Logger logger = Logger.getLogger(MainWindow.class.getName());
+    private static final Logger logger = Logger.getLogger(Reports.class.getName());
 
-    public MainWindow(WindowManager windowManager) {
+    public Reports(WindowManager windowManager) {
         this.windowManager = windowManager;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WindowUtils.FXML_PATH + "MainWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(WindowUtils.FXML_PATH + "Reports.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

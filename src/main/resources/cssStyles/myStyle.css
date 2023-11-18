@@ -1,0 +1,139 @@
+.navbar{
+    -fx-background-color: linear-gradient(to bottom right, #003300, #006600);
+}
+
+.exit{
+    -fx-text-fill-color: #c22c40;
+}
+
+.exit:hover{
+    -fx-background-color: #f15b72;
+}
+
+.navButton{
+    -fx-background-color: linear-gradient(to bottom right, rgba(112,112,112,0.3), rgba(144,144,144,0.3));
+    -fx-alignment: CENTER-LEFT;
+}
+
+.navButton:hover{
+    -fx-background-color: linear-gradient(to bottom right, rgba(112,112,112,0.6), rgba(144,144,144,0.6));
+}
+
+.header-bar{
+    -fx-background-color: linear-gradient(to bottom right, #003300, #006600);
+}
+
+.light-background{
+    -fx-background-color:#E9E9E9;
+}
+
+.textfield-design{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-color: linear-gradient(to bottom right, #003300, #006600);
+    -fx-border-radius: 10px;
+}
+
+.textfield-label{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-color: linear-gradient(to bottom right, #003300, #006600);
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+}
+
+.update-button{
+    -fx-background-color:#333;
+    -fx-background-radius:20px;
+    -fx-text-fill:#fff;
+    -fx-font-size:12px;
+ }
+
+.clear-button{
+    -fx-background-color:#333;
+    -fx-background-radius:15px;
+}
+
+.update-button-noSize{
+    -fx-background-color:#333;
+    -fx-background-radius:20px;
+    -fx-text-fill:#fff;
+}
+
+.update-button-noSize:hover{
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+}
+
+.header-label {
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 5, 0.0 , 3, 3 );
+    -fx-background-color: darkgrey;
+}
+
+.listView {
+    -fx-control-inner-background: #444444; /* Default background color */
+    -fx-border-color: Green;
+    -fx-font-family: "System";
+    -fx-font-size: 14px;
+}
+
+.listView:even {
+    -fx-background-color: #DDDDDD; /* Color for even rows */
+}
+
+.listView:odd {
+    -fx-background-color: #CCCCCC; /* Color for odd rows */
+}
+
+.listView:filled:selected:focused, .list-cell:filled:selected{
+    -fx-background-color: Green;
+    -fx-text-fill: white;
+}
+
+.tableview {
+    -fx-control-inner-background: #444444; /* Default background color */
+    -fx-border-color: Green;
+    -fx-font-family: "System";
+    -fx-font-size: 14px;
+}
+
+.tableview:even {
+    -fx-background-color: #DDDDDD; /* Color for even rows */
+}
+
+.tableview:odd {
+    -fx-background-color: #CCCCCC; /* Color for odd rows */
+}
+
+tableview:filled:selected:focused, .list-cell:filled:selected{
+    -fx-background-color: Green;
+    -fx-text-fill: white;
+}
+
+.tableview .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.tableview .corner {
+    -fx-background-color: transparent;
+}
+
+.tableview .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 2px 2px 2px 2px;
+}
+
+
+/*.list-cell:filled:selected:focused, .list-cell:filled:selected {*/
+/*    -fx-background-color: linear-gradient(#333 0%, #777 25%, #aaa 75%, #eee 100%);*/
+/*    -fx-text-fill: white; !* 5 *!*/
+/*}*/
+/*.list-cell { -fx-text-fill: black; !* 5 *! }*/
+/*.list-cell:odd { -fx-background-color: white; !* 1 *! }*/
+/*.list-cell:even { -fx-background-color: #8f8; !* for information *! }*/
+/*.list-cell:filled:hover {*/
+/*    -fx-background-color: #00f; !* 2 *!*/
+/*    -fx-text-fill: white; !* 5 *!*/
+/*}*/

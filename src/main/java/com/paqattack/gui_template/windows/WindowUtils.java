@@ -28,7 +28,7 @@ public class WindowUtils {
      * @param color The color of the label. "G" for green, "R" for red.
      * @param msg The message to display.
      */
-    public static <T> void showStatusLabel(Label label, String color, String msg) {
+    public static void showStatusLabel(Label label, String color, String msg) {
         Timer timer = new Timer();
         if (color.startsWith("G")) {    // green
             label.setTextFill(Color.web("#0bb527"));

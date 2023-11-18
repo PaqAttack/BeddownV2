@@ -47,6 +47,31 @@ public class ResourceManager {
         throw new IOException("Resource not found anywhere: " + path);
     }
 
+    public String getResourceAbsoluteFilePath(String path) throws IOException {
+
+        // check if file exists in extracted resourcePath
+        File rssDir = new File(extractedLocationPath + path);
+        if (rssDir.exists()) {
+            logger.log(Level.INFO, "Resource found at extracted location: {0}", extractedLocationPath + path);
+            return extractedLocationPath + path;
+        } else {
+            logger.log(Level.INFO, "Resource not found at extracted location: {0}", extractedLocationPath + path);
+        }
+
+        // check if file exists in rssRoot
+        try (InputStream is = getClass().getResourceAsStream(rssPath + path)) {
+            if (is != null) {
+                logger.log(Level.INFO, "Resource found at resources location: {0}", rssPath + path);
+                return rssPath + path;
+            } else {
+                logger.log(Level.INFO, "Resource not found at resources location: {0}", rssPath + path);
+            }
+        }
+
+        logger.log(Level.WARNING, "Resource not found anywhere: {0}", path);
+        throw new IOException("Resource not found anywhere: " + path);
+    }
+
     public void extractResource(String path) throws IOException {
         File rssDir = new File(extractedLocationPath + path);
         if (rssDir.exists()) {
