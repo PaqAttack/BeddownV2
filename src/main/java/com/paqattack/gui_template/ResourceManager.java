@@ -1,39 +1,53 @@
 package com.paqattack.gui_template;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ResourceManager {
     private static final Logger logger = Logger.getLogger(ResourceManager.class.getName());
 
-    private String rootPath;
+    private final String extractedLocationPath;
+    private final String rssPath;
 
-    public ResourceManager(String rootPath) {
-        if (!rootPath.endsWith("/")) {
-            rootPath += "/";
-        }
-        this.rootPath = rootPath;
+    public ResourceManager(String extractedLocationPath, String rssPath) {
+        this.extractedLocationPath = extractedLocationPath;
+        this.rssPath = rssPath;
     }
 
-    public BufferedReader getBufferedReaderResource(String path) {
-        logger.log(Level.INFO, "Loading resource: {0}", rootPath + path);
-        //TODO: check if resource has been extracted
-        //TODO: If so, load that resource
+    /**
+     * Loads the requested file from the extracted files location if available and then from resources if it wasn't found.
+     * @param path The path to the resource.
+     * @return The input stream of the resource.
+     * @throws IOException If the resource could not be extracted.
+     */
+    public InputStream getInputStreamResource(String path) throws IOException {
 
-        // check if file exists in resources
-        try (InputStream is = getClass().getResourceAsStream(rootPath + path)) {
-            logger.log(Level.INFO, "Resource loaded successfully: {0}", rootPath + path);
-            if (is == null) {
-                logger.log(Level.WARNING, "Resource not found: {0}", rootPath + path);
-                return null;
-            }
-            return new BufferedReader(new InputStreamReader(is));
-        } catch (IOException e) {
-            logger.log(Level.WARNING, "Error loading resource: {0}", e.getMessage());
+        // check if file exists in extracted resourcePath
+        File rssDir = new File(extractedLocationPath + path);
+        if (rssDir.exists()) {
+            logger.log(Level.INFO, "Resource found at extracted location: {0}", extractedLocationPath + path);
+            return Files.newInputStream(Paths.get(extractedLocationPath + path));
+        } else {
+            logger.log(Level.INFO, "Resource not found at extracted location: {0}", extractedLocationPath + path);
         }
-        return null;
+
+        // check if file exists in rssRoot
+        InputStream is = getClass().getResourceAsStream(rssPath + path);
+        if (is != null) {
+            logger.log(Level.INFO, "Resource found at resources location: {0}", rssPath + path);
+            return is;
+        } else {
+            logger.log(Level.INFO, "Resource not found at resources location: {0}", rssPath + path);
+        }
+
+        logger.log(Level.WARNING, "Resource not found anywhere: {0}", path);
+        throw new IOException("Resource not found anywhere: " + path);
     }
+
+
 
 
 }

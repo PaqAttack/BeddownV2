@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
 public class AnchorPaneMain  extends AnchorPane {
@@ -32,19 +33,19 @@ public class AnchorPaneMain  extends AnchorPane {
                 try {
                     onSelectButtonClick();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
             });
 
         } catch (Exception e) {
-            e.printStackTrace();
             logger.warning("Error loading FXML file (AnchorPaneMain.fxml): " + e.getMessage());
         }
     }
 
     public void onSelectButtonClick() throws IOException {
-        ResourceManager rm = new ResourceManager("/");
-        BufferedReader br = rm.getBufferedReaderResource("test.txt");
+        ResourceManager rm = new ResourceManager(String.format("%s%s", System.getProperty("user.home"), "/Desktop/FileTesting/"), "/");
+        BufferedReader br = new BufferedReader(new InputStreamReader(rm.getInputStreamResource("test.txt")));
+
         System.out.println(br.readLine());
         logger.info("Select button clicked!");
     }
