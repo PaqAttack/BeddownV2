@@ -1,6 +1,6 @@
 package com.paqattack.gui_template;
 
-import com.example.updated_beddown.windows.AnchorPaneMain;
+import com.paqattack.gui_template.windows.AnchorPaneMain;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -25,7 +25,7 @@ public class MyApplication extends Application {
 
     public static void main(String[] args) {
         try {
-            LogManager.getLogManager().readConfiguration(MyApplication.class.getResourceAsStream("logging.properties"));
+            LogManager.getLogManager().readConfiguration(MyApplication.class.getResourceAsStream("/logging.properties"));
         } catch (IOException e) {
             logger.warning("Error loading logging configuration: " + e.getMessage());
         }

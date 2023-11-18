@@ -1,9 +1,9 @@
-package com.example.updated_beddown.windows;
+package com.paqattack.gui_template.windows;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 import java.util.logging.Logger;
 

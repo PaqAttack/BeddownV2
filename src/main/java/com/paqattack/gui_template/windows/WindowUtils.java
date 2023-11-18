@@ -1,4 +1,4 @@
-package com.example.updated_beddown.windows;
+package com.paqattack.gui_template.windows;
 
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -13,12 +13,21 @@ import java.util.logging.Logger;
 public class WindowUtils {
     private static final Logger logger = Logger.getLogger(WindowUtils.class.getName());
 
-    public static final String FXML_PATH = "/com/example/updated_beddown/windowFXMLs/";
+    /**
+     * The path to the FXML files.
+     */
+    public static final String FXML_PATH = "/windowFXMLs/";
 
     private WindowUtils() {
         throw new IllegalStateException("Utility class");
     }
 
+    /**
+     * Shows a status label for 2.5 seconds.
+     * @param label The label to show.
+     * @param color The color of the label. "G" for green, "R" for red.
+     * @param msg The message to display.
+     */
     public static <T> void showStatusLabel(Label label, String color, String msg) {
         Timer timer = new Timer();
         if (color.startsWith("G")) {    // green
@@ -38,6 +47,13 @@ public class WindowUtils {
         timer.schedule(hideLabel, 2500);
     }
 
+    /**
+     * Opens a file picker dialog and returns the path of the selected file.
+     * @param window The window to attach the file picker to.
+     * @param filter The file extension filter to use.
+     * @param cmd The command to display in the file picker dialog.
+     * @return The path of the selected file.
+     */
     public static String saveFilePicker(Window window, FileChooser.ExtensionFilter filter, String cmd) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(cmd);

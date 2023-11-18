@@ -1,4 +1,4 @@
-package com.example.updated_beddown.windows;
+package com.paqattack.gui_template.windows;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

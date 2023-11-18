@@ -1,4 +1,4 @@
-package com.example.updated_beddown;
+package com.paqattack.gui_template;
 
 public class ProgramEntry {
     public static void main(String[] args) {
