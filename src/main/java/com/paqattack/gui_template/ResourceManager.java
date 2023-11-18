@@ -47,7 +47,23 @@ public class ResourceManager {
         throw new IOException("Resource not found anywhere: " + path);
     }
 
+    public void extractResource(String path) throws IOException {
+        File rssDir = new File(extractedLocationPath + path);
+        if (rssDir.exists()) {
+            logger.log(Level.INFO, "Resource already extracted: {0}", extractedLocationPath + path);
+            return;
+        }
 
+        logger.log(Level.INFO, "Extracting resource: {0}", extractedLocationPath + path);
+        InputStream is = getClass().getResourceAsStream(rssPath + path);
+        if (is == null) {
+            logger.log(Level.WARNING, "Resource not found: {0}", rssPath + path);
+            throw new IOException("Resource not found: " + rssPath + path);
+        }
+
+        rssDir.getParentFile().mkdirs();
+        Files.copy(is, Paths.get(extractedLocationPath + path));
+    }
 
 
 }
