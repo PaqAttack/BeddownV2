@@ -29,6 +29,6 @@ public class Manage extends AnchorPane implements Updatable  {
 
     @Override
     public void update() {
-
+        // TODO document why this method is empty
     }
 }

@@ -4,16 +4,13 @@ import com.paqattack.gui_template.Session;
 import com.paqattack.gui_template.WindowManager;
 import com.paqattack.gui_template.data.ListEntry;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import org.joda.time.DateTimeComparator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,22 +44,6 @@ public class CheckInOut extends AnchorPane implements Updatable {
 
         backPane.setOnMouseMoved(event -> scanBox.requestFocus());
         clearScanBtn.setOnAction(event -> scanBox.clear());
-    }
-
-    private List<String> getStrings() {
-        List<String> strings = new ArrayList<>();
-
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In    Checked In");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy       N/A        Checked In");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
-
-        return strings;
     }
 
     @Override

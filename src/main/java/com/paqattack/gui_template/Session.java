@@ -8,7 +8,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,9 +15,9 @@ import java.util.logging.Logger;
 
 public class Session {
     private static final Logger logger = Logger.getLogger(Session.class.getName());
-    private List<Bed> beds = new ArrayList<>();
-    private List<Employee> employees = new ArrayList<>();
-    private List<ListEntry> entries = new ArrayList<>();
+    private final List<Bed> beds = new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
+    private final List<ListEntry> entries = new ArrayList<>();
     private static Session session;
     private final WindowManager windowManager;
 
@@ -41,9 +40,6 @@ public class Session {
     }
 
     public List<Bed> getBeds() {
-        if (beds == null) {
-            return new ArrayList<>();
-        }
         return beds;
     }
 
@@ -58,9 +54,6 @@ public class Session {
     }
 
     public List<Employee> getEmployees() {
-        if (employees == null) {
-            return new ArrayList<>();
-        }
         return employees;
     }
 
@@ -83,9 +76,6 @@ public class Session {
     }
 
     public List<ListEntry> getEntries() {
-        if (entries == null) {
-            return new ArrayList<>();
-        }
         entries.sort(Comparator.comparing(ListEntry::getTime));
 
         return entries;
@@ -188,7 +178,7 @@ public class Session {
     private void processBed(String[] bed) {
         try {
             String name = bed[0];
-            Gender gender = bed[1].toUpperCase().startsWith("F")? Gender.Female : Gender.Male;
+            Gender gender = bed[1].toUpperCase().startsWith("F")? Gender.FEMALE : Gender.MALE;
             addBed(new Bed(name, gender, bed[2]));
             logger.log(Level.INFO, "Loaded bed: {0}", name);
         } catch (Exception e) {
@@ -219,7 +209,7 @@ public class Session {
         try {
             Rank rank = new Rank(person[2]);
             Workcenter wce = new Workcenter(person[3]);
-            Gender gender = person[3].toUpperCase().startsWith("F")? Gender.Female : Gender.Male;
+            Gender gender = person[3].toUpperCase().startsWith("F")? Gender.FEMALE : Gender.MALE;
 
             Employee emp = new Employee(person[0], person[1], rank, gender, wce);
             addEmployee(emp);
@@ -284,7 +274,7 @@ public class Session {
             bw.append("[PSNL]").append(newline);
 
             for (Employee value : employees) {      // id ; name ; rank ; gender ; wce ; bed assigned 0 or designation
-            String gender = value.getGender() == Gender.Female? "F" : "M";
+            String gender = value.getGender() == Gender.FEMALE ? "F" : "M";
                 String employee = value.getUID() + ";" + value.getName() + ";" + value.getRank().getAbbreviation() + ";" + gender + ";" + value.getWorkcenter().getName() + newline;
                 bw.append(employee);
             }

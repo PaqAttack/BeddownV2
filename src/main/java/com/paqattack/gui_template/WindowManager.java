@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 
 public class WindowManager {
     private static final Logger logger = Logger.getLogger(WindowManager.class.getName());
-    private Stage mainStage;
-    private ResourceManager resourceManager;
-    private Session session;
+    private final Stage mainStage;
+    private final ResourceManager resourceManager;
+    private final Session session;
     private boolean windowLock = true;
 
     public enum BeddownWindow {
@@ -69,8 +69,6 @@ public class WindowManager {
     /**
      * selects a window to display in the main window.
      * Bypasses any locks in place
-     *
-     * @param node
      */
     private void selectWindow(Updatable node) {
         mainWindow.setCenter((Node) node);

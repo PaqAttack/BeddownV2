@@ -23,29 +23,29 @@ public class ResourceManager {
      * @return The input stream of the resource.
      * @throws IOException If the resource could not be extracted.
      */
-    public InputStream getInputStreamResource(String path) throws IOException {
-
-        // check if file exists in extracted resourcePath
-        File rssDir = new File(extractedLocationPath + path);
-        if (rssDir.exists()) {
-            logger.log(Level.INFO, "Resource found at extracted location: {0}", extractedLocationPath + path);
-            return Files.newInputStream(Paths.get(extractedLocationPath + path));
-        } else {
-            logger.log(Level.INFO, "Resource not found at extracted location: {0}", extractedLocationPath + path);
-        }
-
-        // check if file exists in rssRoot
-        InputStream is = getClass().getResourceAsStream(rssPath + path);
-        if (is != null) {
-            logger.log(Level.INFO, "Resource found at resources location: {0}", rssPath + path);
-            return is;
-        } else {
-            logger.log(Level.INFO, "Resource not found at resources location: {0}", rssPath + path);
-        }
-
-        logger.log(Level.WARNING, "Resource not found anywhere: {0}", path);
-        throw new IOException("Resource not found anywhere: " + path);
-    }
+//    public InputStream getInputStreamResource(String path) throws IOException {
+//
+//        // check if file exists in extracted resourcePath
+//        File rssDir = new File(extractedLocationPath + path);
+//        if (rssDir.exists()) {
+//            logger.log(Level.INFO, "Resource found at extracted location: {0}", extractedLocationPath + path);
+//            return Files.newInputStream(Paths.get(extractedLocationPath + path));
+//        } else {
+//            logger.log(Level.INFO, "Resource not found at extracted location: {0}", extractedLocationPath + path);
+//        }
+//
+//        // check if file exists in rssRoot
+//        InputStream is = getClass().getResourceAsStream(rssPath + path);
+//        if (is != null) {
+//            logger.log(Level.INFO, "Resource found at resources location: {0}", rssPath + path);
+//            return is;
+//        } else {
+//            logger.log(Level.INFO, "Resource not found at resources location: {0}", rssPath + path);
+//        }
+//
+//        logger.log(Level.WARNING, "Resource not found anywhere: {0}", path);
+//        throw new IOException("Resource not found anywhere: " + path);
+//    }
 
     public String getResourceAbsoluteFilePath(String path) throws IOException {
 
@@ -86,8 +86,12 @@ public class ResourceManager {
             throw new IOException("Resource not found: " + rssPath + path);
         }
 
-        rssDir.getParentFile().mkdirs();
-        Files.copy(is, Paths.get(extractedLocationPath + path));
+        if (rssDir.getParentFile().mkdirs()) {
+            Files.copy(is, Paths.get(extractedLocationPath + path));
+        } else {
+            logger.log(Level.WARNING, "Error creating directory: {0}", rssDir.getParentFile().getAbsolutePath());
+            throw new IOException("Error creating directory: " + rssDir.getParentFile().getAbsolutePath());
+        }
     }
 
 

@@ -33,9 +33,9 @@ public class Bed {
     public Bed (String name, String input) {
         input = input.toUpperCase();
         if (input.startsWith("F")) {
-            this.gender = Gender.Female;
+            this.gender = Gender.FEMALE;
         } else {
-            this.gender = Gender.Male;
+            this.gender = Gender.MALE;
         }
         this.name = name;
         this.uid = "0";
@@ -43,10 +43,10 @@ public class Bed {
     }
 
     public Bed (String name, Employee employee) {
-        if (employee.getGender() == Gender.Female) {
-            this.gender = Gender.Female;
+        if (employee.getGender() == Gender.FEMALE) {
+            this.gender = Gender.FEMALE;
         } else {
-            this.gender = Gender.Male;
+            this.gender = Gender.MALE;
         }
         occupier = employee;
         assigned = true;
@@ -60,7 +60,7 @@ public class Bed {
     }
 
     public String getGenderStr() {
-        if (gender == Gender.Female) {
+        if (gender == Gender.FEMALE) {
             return "Female";
         } else {
             return "Male";

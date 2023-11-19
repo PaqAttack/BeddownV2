@@ -3,18 +3,20 @@ package com.paqattack.gui_template.data;
 import org.joda.time.DateTime;
 
 public class ListEntry {
-    private Employee employee;
-    private DateTime time;
+    private final Employee employee;
+    private final DateTime time;
     private boolean checkInBldg = false;
     private boolean checkOutBldg = false;
     private boolean checkInBeddown = false;
     private boolean checkOutBeddown = false;
 
     /**
-     * Constructor for a check-in event
+     * Create a ListEntry with a check-in event
      *
-     * @param employee
-     * @param time
+     * @param employee impacted employee
+     * @param time time of event
+     * @param checkInEvent true if check-in event
+     * @param beddownEvent true if beddown event
      */
     public ListEntry(Employee employee, DateTime time, boolean checkInEvent, boolean beddownEvent) {
         this.employee = employee;
@@ -52,8 +54,9 @@ public class ListEntry {
     /**
      * Return array with ints representing the time
      *
-     * @param date
-     * @return
+     * @param date date to be converted
+     * @return array with ints representing the time in the
+     *         order: year, month, day, hour, minute, second
      */
     public static int[] getTimeFromDateTime(DateTime date) {
         int[] time = new int[6];
@@ -90,14 +93,14 @@ public class ListEntry {
     public String toString() {
         String status = employee.getName(20) + "    " + getTime().toString("HH:mm:ss dd-MMM-yy") + "    ";
 
-        String bldg = null;
+        String bldg;
         if (checkInBldg) {
             bldg = "Checked In";
         } else {
             bldg = "   N/A    ";
         }
 
-        String beddown = null;
+        String beddown;
         if (checkInBldg) {
             beddown = "Checked In";
         } else {

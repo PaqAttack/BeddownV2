@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Workcenter {
     private String name;
-    private static List<Workcenter> workcenters = new ArrayList<>();
+    private static final List<Workcenter> workcenters = new ArrayList<>();
 
     public Workcenter(String name) {
         this.name = name;

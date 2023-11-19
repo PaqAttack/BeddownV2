@@ -28,7 +28,13 @@ public class StartUp extends AnchorPane implements Updatable  {
     @FXML
     Label feedbackLabel;
     @FXML
-    Circle helpBedImg, saveSsnImg, loadSaveImg, loadBedImg;
+    Circle helpBedImg;
+    @FXML
+    Circle saveSsnImg;
+    @FXML
+    Circle loadSaveImg;
+    @FXML
+    Circle loadBedImg;
     private static final Logger logger = Logger.getLogger(StartUp.class.getName());
 
     public StartUp(WindowManager windowManager) {
@@ -134,6 +140,6 @@ public class StartUp extends AnchorPane implements Updatable  {
 
     @Override
     public void update() {
-
+        // TODO document why this method is empty
     }
 }

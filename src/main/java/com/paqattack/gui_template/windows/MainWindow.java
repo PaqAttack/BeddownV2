@@ -29,6 +29,6 @@ public class MainWindow extends BorderPane implements Updatable  {
 
     @Override
     public void update() {
-
+        // TODO document why this method is empty
     }
 }

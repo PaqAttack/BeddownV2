@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WindowUtils {
@@ -77,7 +78,7 @@ public class WindowUtils {
         File selectedFile = fileChooser.showOpenDialog(window);
 
         if (selectedFile != null) {
-            logger.log(java.util.logging.Level.INFO, "File path selected: " + selectedFile);
+            logger.log(Level.INFO, "File path selected: {0}", selectedFile);
             return selectedFile.toString();
         } else {
             logger.log(java.util.logging.Level.WARNING, "No file selected");

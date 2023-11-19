@@ -101,19 +101,8 @@ public class Status extends AnchorPane implements Updatable  {
     private void saveBeddownFile(File newFile) {
         List<Employee> emps = Session.getSession().getBeddownCheckedInEmployees();
 
-        try {
-            // if file doesn't exist, then create it
-            if (!newFile.exists()) {
-                if (newFile.createNewFile()) {
-                    logger.log(Level.INFO, "Empty save file created: {0}", newFile.getName());
-                } else {
-                    logger.log(Level.WARNING, "Error creating empty save file: {0}", newFile.getName());
-                    return;
-                }
-            }
-
-            FileWriter fw = new FileWriter(newFile.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
+        try (FileWriter fw = new FileWriter(newFile.getAbsoluteFile());
+             BufferedWriter bw = new BufferedWriter(fw)) {
 
             // write header & beds
             bw.append("BED DOWN REPORT").append(newline).append(newline);
@@ -143,8 +132,6 @@ public class Status extends AnchorPane implements Updatable  {
             }
 
             logger.log(Level.INFO, "Beddown report saved successfully to {0}", newFile.getName());
-            bw.close();
-            fw.close();
         } catch (IOException e) {
             logger.log(Level.WARNING, "Error saving bed file");
         }
@@ -164,19 +151,8 @@ public class Status extends AnchorPane implements Updatable  {
     private void saveBldgFile(File newFile) {
         List<Employee> emps = Session.getSession().getBldgCheckedInEmployees();
 
-        try {
-            // if file doesn't exist, then create it
-            if (!newFile.exists()) {
-                if (newFile.createNewFile()) {
-                    logger.log(Level.INFO, "Empty save file created: {0}", newFile.getName());
-                } else {
-                    logger.log(Level.WARNING, "Error creating empty save file: {0}", newFile.getName());
-                    return;
-                }
-            }
-
-            FileWriter fw = new FileWriter(newFile.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
+        try (FileWriter fw = new FileWriter(newFile.getAbsoluteFile());
+             BufferedWriter bw = new BufferedWriter(fw)) {
 
             // write header & beds
             bw.append("BUILDING ACCOUNTABILITY REPORT").append(newline).append(newline);
@@ -202,8 +178,6 @@ public class Status extends AnchorPane implements Updatable  {
             }
 
             logger.log(Level.INFO, "Building report saved successfully to {0}", newFile.getName());
-            bw.close();
-            fw.close();
         } catch (IOException e) {
             logger.log(Level.WARNING, "Error saving building file");
         }

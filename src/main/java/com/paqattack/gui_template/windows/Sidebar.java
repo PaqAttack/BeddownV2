@@ -13,7 +13,6 @@ public class Sidebar extends VBox implements Updatable  {
     private static final Logger logger = Logger.getLogger(Sidebar.class.getName());
     WindowManager windowManager;
 
-    //region FXML Controls
     @FXML Button startUpBtn;
     @FXML
     private Button manageBtn;
@@ -23,8 +22,6 @@ public class Sidebar extends VBox implements Updatable  {
     private Button statusBtn;
     @FXML
     private Button reportBtn;
-
-    //endregion
 
     public Sidebar(WindowManager windowManager) {
         this.windowManager = windowManager;
@@ -53,6 +50,6 @@ public class Sidebar extends VBox implements Updatable  {
 
     @Override
     public void update() {
-
+        // TODO document why this method is empty
     }
 }

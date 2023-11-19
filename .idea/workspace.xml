@@ -5,80 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="Adding core functionality">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/03539d49967d923c74a92e982a2f6c1733824377" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c89a5491fbfda3fb050196d6a239f20200296e7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fb5aee800f6a22443c1a03450e617221fb2b1c5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4e7b1072d1fea189613c3cef80dc75c66d5e555c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/568e3c7a0cfc05be4f1486a4469c6f364cc3e113" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6c11641c14b021adb85ce8eebf321de38e7b26ad" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/0/708f7ef3e411ae4a32cde458c6f7859f30b58239" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/f/7f18f6165a2fdaeada5ea1d6b7f0f4824f84c780" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/83ce269fed06bd1303a2a6a5fb45b37400f5e4d6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/86881b28235020e797abec9a68ec06037e6155a6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ae003a52a8a35830e02cacded32cff2047f14b2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/f/8fba4b27d50fb6988c0bd8f361cbb5d5552ddd2c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9cfccde895b394db3c9759a88a9762d585517e0c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b83f112aa07626556ec7fc3c5defdaff44a7db70" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b9dbacc17d609ba4fabe72ef33806c9c3a78693a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd744f1c220a07641ee8d4d60bfb5a3da5f46f0d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/3/c3800aca1899434db10558b9579adca50058314e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4fa11113dea662964be9ac5638c5c9a043e2dde" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/e/de13db2b75020dd51e7aaa07d076f9a5b26a066f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e127306e0a047319e306fae0b8397e19df3ab62f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e93644a3782e446bfcba56e51effe5049a96f3f0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f2398f0768aaf68da7506583bd42330eec4bfb8a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/faa6bbfcdca96f2b4605bdf1ef866284daf84b88" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/fadeb219f740ecdd85ff9dbb9af519f4a0a2d93c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/c/1c89a5491fbfda3fb050196d6a239f20200296e7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/f/3fb5aee800f6a22443c1a03450e617221fb2b1c5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/e/4e7b1072d1fea189613c3cef80dc75c66d5e555c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/6/568e3c7a0cfc05be4f1486a4469c6f364cc3e113" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/c/6c11641c14b021adb85ce8eebf321de38e7b26ad" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/0/708f7ef3e411ae4a32cde458c6f7859f30b58239" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/f/7f18f6165a2fdaeada5ea1d6b7f0f4824f84c780" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/3/83ce269fed06bd1303a2a6a5fb45b37400f5e4d6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/6/86881b28235020e797abec9a68ec06037e6155a6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/a/8ae003a52a8a35830e02cacded32cff2047f14b2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/f/8fba4b27d50fb6988c0bd8f361cbb5d5552ddd2c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/c/9cfccde895b394db3c9759a88a9762d585517e0c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/8/b83f112aa07626556ec7fc3c5defdaff44a7db70" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/9/b9dbacc17d609ba4fabe72ef33806c9c3a78693a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/d/bd744f1c220a07641ee8d4d60bfb5a3da5f46f0d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/3/c3800aca1899434db10558b9579adca50058314e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/4/d4fa11113dea662964be9ac5638c5c9a043e2dde" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/e/de13db2b75020dd51e7aaa07d076f9a5b26a066f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/1/e127306e0a047319e306fae0b8397e19df3ab62f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/9/e93644a3782e446bfcba56e51effe5049a96f3f0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/2/f2398f0768aaf68da7506583bd42330eec4bfb8a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/a/faa6bbfcdca96f2b4605bdf1ef866284daf84b88" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/a/fadeb219f740ecdd85ff9dbb9af519f4a0a2d93c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Updatable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/MyLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Gender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Beddown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Reports.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cssStyles/myStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cssStyles/myStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Beddown.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Status.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Reports.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Sidebar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Sidebar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +45,20 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "PaqAttack"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="61104789-9ac0-4771-b1a9-aee456c7b928" />
+        <option name="url" value="https://github.com/PaqAttack/BeddownV2.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -175,7 +133,7 @@
       <workItem from="1700028915574" duration="1148000" />
       <workItem from="1700272599774" duration="3032000" />
       <workItem from="1700279739226" duration="37068000" />
-      <workItem from="1700368359601" duration="6386000" />
+      <workItem from="1700368359601" duration="7489000" />
     </task>
     <task id="LOCAL-00001" summary="Working on RSS Manager">
       <option name="closed" value="true" />
@@ -193,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700313251985</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding core functionality">
+      <option name="closed" value="true" />
+      <created>1700374817371</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700374817371</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
