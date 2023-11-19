@@ -1,11 +1,16 @@
 
-ª
-java:S11929"‡Define a constant instead of duplicating this literal "Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    " 7 times.(…ãÓÒÿÿÿÿÿ8˜Âï¯¾1
-Z
-java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8ô‚‰°¾1
-`
-java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8õ‚‰°¾1
-Z
-java:S1128"=Remove this unused import 'org.joda.time.DateTimeComparator'.(ý²‘¾8õ‚‰°¾1
-L
-java:S11444"/Remove this unused private "getStrings" method.(ë¤“ª8¾Šð¯¾1
+£
+java:S11867"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(êÎ´äøÿÿÿÿ8Â¼¸½¾1
+£
+java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Äûëìúÿÿÿÿ8Â¼¸½¾1
+Y
+java:S1854A"=Remove this useless assignment to local variable "scannedID".(–¡æC8Ð¼¸½¾1
+J
+java:S1481A".Remove this unused "scannedID" local variable.(–¡æC8Ñ¼¸½¾1
+G	java:S106F"+Replace this use of System.out by a logger.(šÑ¤Í8Õ¼¸½¾1
+F
+java:S1068 ")Remove this unused "timer" private field.( ‰û“8Ö¼¸½¾1
+Q
+java:S1068!"/Remove this unused "timerActive" private field.(Ù„Ïçøÿÿÿÿ8³–º½¾1
+R
+java:S11447"0Remove this unused private "extendTimer" method.(êÎ´äøÿÿÿÿ8³–º½¾1

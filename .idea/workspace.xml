@@ -4,25 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="Adding core functionality">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="Many optimizations in code">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fb5aee800f6a22443c1a03450e617221fb2b1c5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3fb5aee800f6a22443c1a03450e617221fb2b1c5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4e7b1072d1fea189613c3cef80dc75c66d5e555c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4e7b1072d1fea189613c3cef80dc75c66d5e555c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/568e3c7a0cfc05be4f1486a4469c6f364cc3e113" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/568e3c7a0cfc05be4f1486a4469c6f364cc3e113" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6c11641c14b021adb85ce8eebf321de38e7b26ad" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6c11641c14b021adb85ce8eebf321de38e7b26ad" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/f/7f18f6165a2fdaeada5ea1d6b7f0f4824f84c780" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/f/7f18f6165a2fdaeada5ea1d6b7f0f4824f84c780" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/f/8fba4b27d50fb6988c0bd8f361cbb5d5552ddd2c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/f/8fba4b27d50fb6988c0bd8f361cbb5d5552ddd2c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b83f112aa07626556ec7fc3c5defdaff44a7db70" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b83f112aa07626556ec7fc3c5defdaff44a7db70" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4fa11113dea662964be9ac5638c5c9a043e2dde" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4fa11113dea662964be9ac5638c5c9a043e2dde" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f2398f0768aaf68da7506583bd42330eec4bfb8a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f2398f0768aaf68da7506583bd42330eec4bfb8a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/faa6bbfcdca96f2b4605bdf1ef866284daf84b88" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/faa6bbfcdca96f2b4605bdf1ef866284daf84b88" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/fadeb219f740ecdd85ff9dbb9af519f4a0a2d93c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/fadeb219f740ecdd85ff9dbb9af519f4a0a2d93c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +128,7 @@
       <workItem from="1700028915574" duration="1148000" />
       <workItem from="1700272599774" duration="3032000" />
       <workItem from="1700279739226" duration="37068000" />
-      <workItem from="1700368359601" duration="7489000" />
+      <workItem from="1700368359601" duration="10793000" />
     </task>
     <task id="LOCAL-00001" summary="Working on RSS Manager">
       <option name="closed" value="true" />
@@ -159,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700374817371</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Many optimizations in code">
+      <option name="closed" value="true" />
+      <created>1700375889663</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700375889663</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +172,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Working on RSS Manager" />
     <MESSAGE value="Adding core functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding core functionality" />
+    <MESSAGE value="Many optimizations in code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many optimizations in code" />
   </component>
 </project>
