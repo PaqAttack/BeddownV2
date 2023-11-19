@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -18,14 +19,11 @@
          </font>
       </Label>
       <Button fx:id="clearScanBtn" layoutX="491.0" layoutY="196.0" mnemonicParsing="false" styleClass="clear-button" text="Clear" textFill="#00bc1c" />
-      <ListView fx:id="entryListView" layoutX="513.0" layoutY="260.0" prefHeight="440.0" prefWidth="494.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
-      <TableView fx:id="tableview" layoutX="21.0" layoutY="260.0" prefHeight="434.0" prefWidth="468.0" styleClass="tableview" stylesheets="@../cssStyles/myStyle.css">
-        <columns>
-          <TableColumn fx:id="nameCol" editable="false" prefWidth="131.0" sortable="false" text="Name" />
-          <TableColumn fx:id="timeCol" editable="false" prefWidth="133.0" sortable="false" text="Time" />
-            <TableColumn fx:id="bldgCol" editable="false" prefWidth="100.0" sortable="false" text="Building" />
-            <TableColumn fx:id="bedCol" editable="false" prefWidth="100.0" sortable="false" text="Bed down" />
-        </columns>
-      </TableView>
+      <ListView fx:id="entryListView" layoutX="194.0" layoutY="304.0" prefHeight="386.0" prefWidth="637.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
+      <ImageView fitHeight="41.0" fitWidth="637.0" layoutX="194.0" layoutY="263.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../Users/cpaqu/OneDrive/Pictures/window2.PNG" />
+         </image>
+      </ImageView>
    </children>
 </fx:root>

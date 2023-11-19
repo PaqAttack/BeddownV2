@@ -18,19 +18,17 @@ public class WindowManager {
 
     public enum BeddownWindow {
         STARTUP,
-        BEDDOWN,
+        STATUS,
         CHECKINOUT,
-        MANAGE,
-        REPORTS
+        MANAGE
     }
 
     //region Windows
     MainWindow mainWindow = new MainWindow(this);
     Sidebar sidebar = new Sidebar(this);
-    Beddown beddown = new Beddown(this);
+    Status status = new Status(this);
     CheckInOut checkInOut = new CheckInOut(this);
     Manage manage = new Manage(this);
-    Reports reports = new Reports(this);
     StartUp startUp = new StartUp(this);
     //endregion
 
@@ -71,15 +69,18 @@ public class WindowManager {
     /**
      * selects a window to display in the main window.
      * Bypasses any locks in place
+     *
      * @param node
      */
-    private void selectWindow(Node node) {
-        mainWindow.setCenter(node);
+    private void selectWindow(Updatable node) {
+        mainWindow.setCenter((Node) node);
+        node.update();
     }
 
     /**
      * Selects a window to display in the main window.
      * Will not function if lock is in place
+     *
      * @param window The window to display.
      */
     public void selectWindow(BeddownWindow window) {
@@ -88,11 +89,22 @@ public class WindowManager {
             return;
         }
         switch (window) {
-            case STARTUP -> mainWindow.setCenter(startUp);
-            case BEDDOWN -> mainWindow.setCenter(beddown);
-            case CHECKINOUT -> mainWindow.setCenter(checkInOut);
-            case MANAGE -> mainWindow.setCenter(manage);
-            case REPORTS -> mainWindow.setCenter(reports);
+            case STARTUP -> {
+                mainWindow.setCenter(startUp);
+                startUp.update();
+            }
+            case STATUS -> {
+                mainWindow.setCenter(status);
+                status.update();
+            }
+            case CHECKINOUT -> {
+                mainWindow.setCenter(checkInOut);
+                checkInOut.update();
+            }
+            case MANAGE -> {
+                mainWindow.setCenter(manage);
+                manage.update();
+            }
         }
     }
 

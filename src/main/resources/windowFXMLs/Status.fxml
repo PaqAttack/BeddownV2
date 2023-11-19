@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="720.0" prefWidth="1025.0" style="-fx-background-color: #222222;" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1025.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Users/cpaqu/OneDrive/Pictures/statusback2.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="141.0" layoutY="329.0" prefHeight="30.0" prefWidth="204.0" text="Airmen Checked In" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="1.0" />
+         </padding>
+      </Label>
+      <Label layoutX="599.0" layoutY="325.0" prefHeight="30.0" prefWidth="204.0" snapToPixel="false" text="Airmen Bedding down" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="1.0" />
+         </padding>
+      </Label>
+      <Label layoutX="599.0" layoutY="405.0" prefHeight="30.0" prefWidth="204.0" snapToPixel="false" text="Available Beds" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="1.0" />
+         </padding>
+      </Label>
+      <Label layoutX="599.0" layoutY="482.0" prefHeight="30.0" prefWidth="204.0" snapToPixel="false" text="Assigned Beds" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="1.0" />
+         </padding>
+      </Label>
+      <Label layoutX="599.0" layoutY="562.0" prefHeight="30.0" prefWidth="204.0" snapToPixel="false" text="Total Beds" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="1.0" />
+         </padding>
+      </Label>
+      <Label fx:id="beddownCheckedIn" alignment="CENTER" layoutX="825.0" layoutY="321.0" prefHeight="40.0" prefWidth="70.0" text="255" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="availBeds" alignment="CENTER" layoutX="825.0" layoutY="400.0" prefHeight="40.0" prefWidth="70.0" text="255" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="assignedBeds" alignment="CENTER" layoutX="825.0" layoutY="477.0" prefHeight="40.0" prefWidth="70.0" text="255" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalBeds" alignment="CENTER" layoutX="825.0" layoutY="557.0" prefHeight="40.0" prefWidth="70.0" text="255" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="amnCheckedInLabel" alignment="CENTER" layoutX="368.0" layoutY="324.0" prefHeight="40.0" prefWidth="70.0" text="255" textFill="#9e9e9e">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <ListView fx:id="locationListView" layoutX="130.0" layoutY="395.0" prefHeight="214.0" prefWidth="317.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
+      <Button fx:id="locationReportBtn" layoutX="224.0" layoutY="626.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Generate Report">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="bedReporBtn" layoutX="686.0" layoutY="626.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Generate Report">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutY="81.0" prefHeight="51.0" prefWidth="1025.0" text="Current Status" textFill="#9e9e9e">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

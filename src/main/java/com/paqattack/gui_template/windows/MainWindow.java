@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MainWindow extends BorderPane {
+public class MainWindow extends BorderPane implements Updatable  {
     WindowManager windowManager;
     private static final Logger logger = Logger.getLogger(MainWindow.class.getName());
 
@@ -27,4 +27,8 @@ public class MainWindow extends BorderPane {
         }
     }
 
+    @Override
+    public void update() {
+
+    }
 }

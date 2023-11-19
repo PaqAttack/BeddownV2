@@ -8,6 +8,8 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,11 +41,54 @@ public class Session {
     }
 
     public List<Bed> getBeds() {
+        if (beds == null) {
+            return new ArrayList<>();
+        }
         return beds;
     }
 
+    public List<Bed> getAssignedBeds() {
+        return beds.stream()
+                .filter(Bed::isAssigned).toList();
+    }
+
+    public List<Bed> getUnassignedBeds() {
+        return beds.stream()
+                .filter(x -> !x.isAssigned()).toList();
+    }
+
     public List<Employee> getEmployees() {
+        if (employees == null) {
+            return new ArrayList<>();
+        }
         return employees;
+    }
+
+    public List<String> getBldgCheckedInEmployeeNames() {
+        return employees.stream()
+                .filter(Employee::isInside)
+                .map(Employee::toString)
+                .toList();
+    }
+
+    public List<Employee> getBldgCheckedInEmployees() {
+        return employees.stream()
+                .filter(Employee::isInside)
+                .toList();
+    }
+
+    public List<Employee> getBeddownCheckedInEmployees() {
+        return employees.stream()
+                .filter(Employee::isInBed).toList();
+    }
+
+    public List<ListEntry> getEntries() {
+        if (entries == null) {
+            return new ArrayList<>();
+        }
+        entries.sort(Comparator.comparing(ListEntry::getTime));
+
+        return entries;
     }
 
     public static Session getSession() {

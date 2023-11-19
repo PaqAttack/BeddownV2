@@ -1,11 +1,15 @@
 package com.paqattack.gui_template.windows;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
 import java.io.File;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
@@ -78,6 +82,13 @@ public class WindowUtils {
         } else {
             logger.log(java.util.logging.Level.WARNING, "No file selected");
             return null;
+        }
+    }
+
+    public static <T> void updateObservableListView(ListView<T> listView, List<T> list) {
+        if (listView != null && list != null) {
+            ObservableList<T> observableList = FXCollections.observableArrayList(list);
+            listView.setItems(observableList);
         }
     }
 }

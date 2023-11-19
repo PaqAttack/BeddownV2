@@ -75,10 +75,13 @@ public class Bed {
         this.name = name;
     }
 
+    public boolean isAssigned() {
+        return assigned;
+    }
 
-
-
-
+    public Employee getOccupier() {
+        return occupier;
+    }
 
     public static boolean loadBedFile(File file) {
 

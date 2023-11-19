@@ -106,4 +106,5 @@ public class ListEntry {
 
         return status + "    " + bldg + "    " + beddown;
     }
+
 }

@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Manage extends AnchorPane {
+public class Manage extends AnchorPane implements Updatable  {
     WindowManager windowManager;
     private static final Logger logger = Logger.getLogger(Manage.class.getName());
 
@@ -25,5 +25,10 @@ public class Manage extends AnchorPane {
         } catch (Exception e) {
             logger.log(Level.WARNING, "Error loading FXML file from {0}", getClass().getName());
         }
+    }
+
+    @Override
+    public void update() {
+
     }
 }

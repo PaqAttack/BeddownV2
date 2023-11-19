@@ -1,0 +1,11 @@
+
+ª
+java:S11929"‡Define a constant instead of duplicating this literal "Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    " 7 times.(…ãÓÒÿÿÿÿÿ8˜Âï¯¾1
+Z
+java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8ô‚‰°¾1
+`
+java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8õ‚‰°¾1
+Z
+java:S1128"=Remove this unused import 'org.joda.time.DateTimeComparator'.(ý²‘¾8õ‚‰°¾1
+L
+java:S11444"/Remove this unused private "getStrings" method.(ë¤“ª8¾Šð¯¾1

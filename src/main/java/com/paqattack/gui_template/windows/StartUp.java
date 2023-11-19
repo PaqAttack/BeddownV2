@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class StartUp extends AnchorPane {
+public class StartUp extends AnchorPane implements Updatable  {
     WindowManager windowManager;
     @FXML Button helpCreateBedBtn;
     @FXML
@@ -132,4 +132,8 @@ public class StartUp extends AnchorPane {
         }
     }
 
+    @Override
+    public void update() {
+
+    }
 }

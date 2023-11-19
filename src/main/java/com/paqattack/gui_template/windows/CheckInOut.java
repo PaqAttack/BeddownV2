@@ -1,19 +1,23 @@
 package com.paqattack.gui_template.windows;
 
+import com.paqattack.gui_template.Session;
 import com.paqattack.gui_template.WindowManager;
+import com.paqattack.gui_template.data.ListEntry;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import org.joda.time.DateTimeComparator;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CheckInOut extends AnchorPane {
+public class CheckInOut extends AnchorPane implements Updatable {
     WindowManager windowManager;
     private static final Logger logger = Logger.getLogger(CheckInOut.class.getName());
 
@@ -24,18 +28,7 @@ public class CheckInOut extends AnchorPane {
     @FXML
     Button clearScanBtn;
     @FXML
-    TableView<String> entryTable;
-    @FXML
-    TableColumn<String, String> nameCol;
-    @FXML
-    TableColumn<String, String> timeCol;
-    @FXML
-    TableColumn<String, String> bldgCol;
-    @FXML
-    TableColumn<String, String> bedCol;
-
-    @FXML
-    ListView<String> entryListView;
+    ListView<ListEntry> entryListView;
 
     public CheckInOut(WindowManager windowManager) {
         this.windowManager = windowManager;
@@ -54,17 +47,6 @@ public class CheckInOut extends AnchorPane {
 
         backPane.setOnMouseMoved(event -> scanBox.requestFocus());
         clearScanBtn.setOnAction(event -> scanBox.clear());
-
-        updateObservableListView(entryListView, getStrings());
-
-
-    }
-
-    private <T> void updateObservableListView(ListView<T> listView, List<T> list) {
-        if (listView != null && list != null) {
-            ObservableList<T> observableList = FXCollections.observableArrayList(list);
-            listView.setItems(observableList);
-        }
     }
 
     private List<String> getStrings() {
@@ -73,8 +55,19 @@ public class CheckInOut extends AnchorPane {
         strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In    Checked In");
         strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy       N/A        Checked In");
         strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
+        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
+        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
+        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
+        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
+        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
+        strings.add("Paquin, Christopher     44:44:44 dd-MMM-yy    Checked In       N/A    ");
 
         return strings;
     }
 
+    @Override
+    public void update() {
+        Platform.runLater(() -> WindowUtils.updateObservableListView(entryListView, Session.getSession().getEntries()));
+        scanBox.requestFocus();
+    }
 }

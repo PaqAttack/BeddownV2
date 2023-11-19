@@ -32,4 +32,7 @@ public class Workcenter {
     public static List<Workcenter> getWorkcenters() {
         return workcenters;
     }
+    public static List<String> getWorkcenterNames() {
+        return workcenters.stream().map(Workcenter::getName).toList();
+    }
 }

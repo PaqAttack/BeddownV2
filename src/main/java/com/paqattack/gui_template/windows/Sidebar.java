@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Sidebar extends VBox {
+public class Sidebar extends VBox implements Updatable  {
     private static final Logger logger = Logger.getLogger(Sidebar.class.getName());
     WindowManager windowManager;
 
@@ -20,7 +20,7 @@ public class Sidebar extends VBox {
     @FXML
     private Button checkBtn;
     @FXML
-    private Button beddownBtn;
+    private Button statusBtn;
     @FXML
     private Button reportBtn;
 
@@ -48,8 +48,11 @@ public class Sidebar extends VBox {
         startUpBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.STARTUP));
         manageBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.MANAGE));
         checkBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT));
-        beddownBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.BEDDOWN));
-        reportBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.REPORTS));
+        statusBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.STATUS));
     }
 
+    @Override
+    public void update() {
+
+    }
 }

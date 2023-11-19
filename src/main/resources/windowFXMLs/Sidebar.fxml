@@ -18,17 +18,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="beddownBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" styleClass="navButton" text="Beddown" textFill="WHITE" wrapText="true">
+      <Button fx:id="statusBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" styleClass="navButton" text="Status" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
       <Button fx:id="manageBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" styleClass="navButton" text="Manage" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="reportBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" styleClass="navButton" text="Reports" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

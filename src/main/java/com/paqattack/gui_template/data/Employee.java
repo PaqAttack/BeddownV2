@@ -119,4 +119,9 @@ public class Employee {
     public boolean isInBed() {
         return inBed;
     }
+
+    @Override
+    public String toString() {
+        return rank.getAbbreviation() + " " + name;
+    }
 }
