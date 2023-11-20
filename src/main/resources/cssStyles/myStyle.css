@@ -30,9 +30,33 @@
 .textfield-design{
     -fx-background-color: transparent;
     -fx-background-radius: 10px;
-    -fx-border-color: linear-gradient(to bottom right, #003300, #006600);
+    -fx-border-color: #006600;
     -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-text-fill:#fff;
 }
+
+ /*Background color of the control itself*/
+   .choice-box {
+       -fx-background-color: transparent;
+       -fx-background-radius: 10px;
+       -fx-border-color: #006600;
+       -fx-border-radius: 10px;
+       -fx-border-width: 2px;
+       -fx-mark-color: green; // arrow color
+   }
+
+  /* Selected item text color on the control itself*/
+   .choice-box > .label { -fx-text-fill: white; }
+
+   /*Background color of the whole context menu*/
+   .choice-box .context-menu { -fx-background-color: black; }
+  /*Focused item background color in the list*/
+   .choice-box .menu-item:focused { -fx-background-color: green; }
+ /*Text color of non-focused items in the list*/
+   .choice-box .menu-item > .label { -fx-text-fill: white; }
+ /*Text color of focused item in the list*/
+   .choice-box .menu-item:focused > .label { -fx-text-fill: black; }
 
 .textfield-label{
     -fx-background-color: transparent;
@@ -62,6 +86,16 @@
 
 .update-button-noSize:hover{
     -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+}
+
+.update-button-noSize-noColor{
+    -fx-background-color:#333;
+    -fx-background-radius:20px;
+}
+
+.update-button-noSize-noColor:hover{
     -fx-border-width: 1px;
     -fx-border-radius: 20px;
 }

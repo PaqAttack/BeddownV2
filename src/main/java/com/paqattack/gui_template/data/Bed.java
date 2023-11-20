@@ -141,4 +141,9 @@ public class Bed {
     public String getUid() {
         return uid;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

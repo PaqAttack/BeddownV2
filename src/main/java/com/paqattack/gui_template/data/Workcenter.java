@@ -35,4 +35,9 @@ public class Workcenter {
     public static List<String> getWorkcenterNames() {
         return workcenters.stream().map(Workcenter::getName).toList();
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

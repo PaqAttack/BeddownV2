@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="720.0" prefWidth="1025.0" style="-fx-background-color: #222222;" stylesheets="@../cssStyles/myStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TextField fx:id="nameTxt" layoutX="451.0" layoutY="147.0" prefHeight="29.0" prefWidth="225.0" styleClass="textfield-design" />
+        <TextField fx:id="workcenterAddTxt" layoutX="451.0" layoutY="348.0" prefHeight="29.0" prefWidth="225.0" styleClass="textfield-design" />
+        <Label layoutX="367.0" layoutY="153.0" text="Name:" textFill="#e1e1e1" />
+        <Label layoutX="367.0" layoutY="196.0" text="Rank" textFill="#e1e1e1" />
+        <Button fx:id="addWorkcenterBtn" layoutX="499.0" layoutY="388.0" mnemonicParsing="false" styleClass="clear-button" text="Add New Workcenter" textFill="#c9c9c9" />
+        <ChoiceBox fx:id="rankChoice" layoutX="451.0" layoutY="189.0" prefHeight="31.0" prefWidth="225.0" styleClass="choice-box-popup" />
+        <ChoiceBox fx:id="workcenterChoice" layoutX="451.0" layoutY="307.0" prefHeight="31.0" prefWidth="225.0" styleClass="choice-box-popup" />
+        <Label layoutX="367.0" layoutY="314.0" text="Workcenter:" textFill="#e1e1e1" />
+        <Label layoutX="367.0" layoutY="579.0" text="Unique ID:" textFill="#e1e1e1" />
+        <TextField fx:id="uidTxt" editable="false" layoutX="451.0" layoutY="573.0" prefHeight="29.0" prefWidth="225.0" styleClass="textfield-design" />
+        <ChoiceBox fx:id="genderChoice" layoutX="450.0" layoutY="240.0" prefHeight="31.0" prefWidth="225.0" styleClass="choice-box-popup" />
+        <Label layoutX="366.0" layoutY="247.0" text="Gender" textFill="#e1e1e1" />
+        <Label layoutX="366.0" layoutY="466.0" text="Assigned Bed" textFill="#e1e1e1" />
+        <ChoiceBox fx:id="assignBedChoice" layoutX="458.0" layoutY="459.0" prefHeight="31.0" prefWidth="225.0" styleClass="choice-box-popup" />
+        <Button fx:id="setNoneBtn" layoutX="478.0" layoutY="498.0" mnemonicParsing="false" styleClass="clear-button" text="Set NONE" textFill="#c9c9c9" />
+        <Button fx:id="setRandomBtn" layoutX="569.0" layoutY="498.0" mnemonicParsing="false" styleClass="clear-button" text="Set RANDOM" textFill="#c9c9c9" />
+        <Button fx:id="doneBtn" layoutX="458.0" layoutY="628.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="180.0" styleClass="update-button-noSize" text="DONE" textFill="#0fa43e">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Button>
+      <Button fx:id="exitwoSaveBtn" layoutX="884.0" layoutY="676.0" mnemonicParsing="false" styleClass="update-button-noSize-noColor" text="Exit without saving" textFill="#ff4848" />
+    </children>
+</fx:root>

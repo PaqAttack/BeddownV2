@@ -53,6 +53,20 @@ public class Session {
                 .filter(x -> !x.isAssigned()).toList();
     }
 
+    public List<Bed> getUnassignedMaleBeds() {
+        return beds.stream()
+                .filter(x -> !x.isAssigned())
+                .filter(x -> x.getGender().equals(Gender.MALE))
+                .toList();
+    }
+
+    public List<Bed> getUnassignedFemaleBeds() {
+        return beds.stream()
+                .filter(x -> !x.isAssigned())
+                .filter(x -> x.getGender().equals(Gender.FEMALE))
+                .toList();
+    }
+
     public List<Employee> getEmployees() {
         return employees;
     }

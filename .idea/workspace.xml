@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="Many optimizations in code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ScannedData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/NewPlayer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/windowImages/statusback2.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/windowImages/window2.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/86881b28235020e797abec9a68ec06037e6155a6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b83f112aa07626556ec7fc3c5defdaff44a7db70" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b83f112aa07626556ec7fc3c5defdaff44a7db70" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/6/86881b28235020e797abec9a68ec06037e6155a6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="ADDED TIMED SCANNING">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/MyLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cssStyles/myStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cssStyles/myStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/NewPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/NewEmployee.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +128,7 @@
       <workItem from="1700470165773" duration="5650000" />
       <workItem from="1700477749361" duration="775000" />
       <workItem from="1700478598650" duration="909000" />
-      <workItem from="1700479540813" duration="872000" />
+      <workItem from="1700479540813" duration="5614000" />
     </task>
     <task id="LOCAL-00001" summary="Working on RSS Manager">
       <option name="closed" value="true" />
@@ -179,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700399452308</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ADDED TIMED SCANNING">
+      <option name="closed" value="true" />
+      <created>1700480467421</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700480467421</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +189,7 @@
     <MESSAGE value="Working on RSS Manager" />
     <MESSAGE value="Adding core functionality" />
     <MESSAGE value="Many optimizations in code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Many optimizations in code" />
+    <MESSAGE value="ADDED TIMED SCANNING" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADDED TIMED SCANNING" />
   </component>
 </project>
