@@ -1,5 +1,6 @@
 package com.paqattack.gui_template;
 
+import com.paqattack.gui_template.data.ScannedData;
 import com.paqattack.gui_template.windows.*;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -20,7 +21,8 @@ public class WindowManager {
         STARTUP,
         STATUS,
         CHECKINOUT,
-        MANAGE
+        MANAGE,
+        NEW_PLAYER
     }
 
     //region Windows
@@ -30,6 +32,7 @@ public class WindowManager {
     CheckInOut checkInOut = new CheckInOut(this);
     Manage manage = new Manage(this);
     StartUp startUp = new StartUp(this);
+    NewEmployee newEmployee = new NewEmployee(this);
     //endregion
 
 
@@ -103,6 +106,10 @@ public class WindowManager {
                 mainWindow.setCenter(manage);
                 manage.update();
             }
+            case NEW_PLAYER -> {
+                mainWindow.setCenter(newEmployee);
+                newEmployee.update();
+            }
         }
     }
 
@@ -120,5 +127,9 @@ public class WindowManager {
 
     public Session getSession() {
         return session;
+    }
+
+    public void passNewEmployeeData(ScannedData sd) {
+        newEmployee.setScannedData(sd);
     }
 }

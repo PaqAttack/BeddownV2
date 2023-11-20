@@ -4,6 +4,8 @@ import com.paqattack.gui_template.Session;
 import com.paqattack.gui_template.WindowManager;
 import com.paqattack.gui_template.data.Employee;
 import com.paqattack.gui_template.data.ListEntry;
+import com.paqattack.gui_template.data.ScannedData;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import org.joda.time.DateTime;
 
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,8 +30,7 @@ public class CheckInOut extends AnchorPane implements Updatable {
     Button clearScanBtn;
     @FXML
     ListView<ListEntry> entryListView;
-    private Timer timer = new Timer();
-    private boolean timerActive = false;
+    private PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
 
     public CheckInOut(WindowManager windowManager) {
         this.windowManager = windowManager;
@@ -49,31 +49,51 @@ public class CheckInOut extends AnchorPane implements Updatable {
 
         backPane.setOnMouseMoved(event -> scanBox.requestFocus());
         clearScanBtn.setOnAction(event -> scanBox.clear());
-
+        pause.setOnFinished(event -> processScan());
+        scanBox.setOnKeyTyped(event -> extendTimer());
     }
 
     private void extendTimer() {
-
+        pause.stop();
+        pause.playFromStart();
     }
 
-    public void onChange() {
+    private void processScan() {
+        String scannedText = scanBox.getText();
+        if (scannedText.length() > 80 && (scannedText.startsWith("M") || scannedText.startsWith("N"))) {
+            String id = null;
+            String first = null;
+            String last = null;
+            String rank = null;
 
-    }
-
-    public void scannedChange() {
-        if (scanBox.getText().length() == 99) {
-            String scannedID = scanBox.getText();
-
-            if (scannedEmployee != null) {
-                session.createListEntry(scannedEmployee, ListEntry.convertDateToString(new DateTime()));
-                updateAccountabilityInterfaceElements();
-                System.out.println("Created list entry");
+            if (scannedText.startsWith("N")) {
+                id = scannedText.substring(0, 16);
+                first = scannedText.substring(15, 35).trim();
+                last = scannedText.substring(35, 61).trim();
+                rank = scannedText.substring(69, 75).trim();
             } else {
-                // fill blocks with si data
-                transferSIData(si);
+                id = scannedText.substring(0, 16);
+                first = scannedText.substring(16, 36).trim();
+                last = scannedText.substring(37, 63).trim();
+                rank = scannedText.substring(74, 80).trim();
             }
-            scantxt.setText("");
+
+            Employee emp = Employee.getEmployeeFromUID(id);
+            if (emp != null) {
+                Session.getSession().addEntry(new ListEntry(emp, new DateTime(), true, false));
+                logger.log(Level.INFO, "Employee {0} checked in", emp.getName());
+            } else {
+                //new employee
+                ScannedData sd = new ScannedData(id, first, last, rank);
+                logger.log(Level.INFO, "New employee scanned: {0}", sd);
+                windowManager.passNewEmployeeData(sd);
+                windowManager.selectWindow(WindowManager.BeddownWindow.NEW_PLAYER);
+            }
+        } else {
+            //not a valid scan
+            logger.log(Level.INFO, "Invalid scan: {0}", scannedText);
         }
+        scanBox.clear();
     }
 
     @Override

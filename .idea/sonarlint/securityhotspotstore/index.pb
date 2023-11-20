@@ -19,16 +19,12 @@ q
 Asrc/main/java/com/paqattack/gui_template/windows/WindowUtils.java,8\f\8fba4b27d50fb6988c0bd8f361cbb5d5552ddd2c
 m
 =src/main/java/com/paqattack/gui_template/windows/StartUp.java,6\c\6c11641c14b021adb85ce8eebf321de38e7b26ad
-p
-@src/main/java/com/paqattack/gui_template/windows/Updateable.java,d\d\dd583c62cc62aa6f8a88675d98dd1c54acfb1d95
 o
 ?src/main/java/com/paqattack/gui_template/windows/Updatable.java,1\8\18c4ca33e6649d81a6e82dab8f52cbfa89ff12ba
 p
 @src/main/java/com/paqattack/gui_template/windows/MainWindow.java,f\2\f2398f0768aaf68da7506583bd42330eec4bfb8a
 l
 <src/main/java/com/paqattack/gui_template/windows/Manage.java,5\6\568e3c7a0cfc05be4f1486a4469c6f364cc3e113
-m
-=src/main/java/com/paqattack/gui_template/windows/Reports.java,8\6\86881b28235020e797abec9a68ec06037e6155a6
 m
 =src/main/java/com/paqattack/gui_template/data/Workcenter.java,b\9\b9dbacc17d609ba4fabe72ef33806c9c3a78693a
 m
@@ -80,8 +76,6 @@ Q.idea/sonarlint/securityhotspotstore/6/c/6c11641c14b021adb85ce8eebf321de38e7b26
 w
 G.idea/sonarlint/issuestore/b/d/bd744f1c220a07641ee8d4d60bfb5a3da5f46f0d,8\b\8b884cfc536472c6a2409a9adc6de2e2f1b93160
 
-Q.idea/sonarlint/securityhotspotstore/8/6/86881b28235020e797abec9a68ec06037e6155a6,b\a\baef66818b3654212f419ff25a024467e67c9bab
-
 Q.idea/sonarlint/securityhotspotstore/b/d/bd744f1c220a07641ee8d4d60bfb5a3da5f46f0d,4\6\46cde0ac345cb28963729432ee06f38cd62b8d04
 
 Q.idea/sonarlint/securityhotspotstore/8/a/8ae003a52a8a35830e02cacded32cff2047f14b2,3\8\38e43d9b7a0d93de52455ec3e1abce42173bfa55
@@ -110,3 +104,9 @@ k
 ;src/main/java/com/paqattack/gui_template/MyApplication.java,c\3\c3800aca1899434db10558b9579adca50058314e
 i
 9src/main/java/com/paqattack/gui_template/data/Gender.java,f\a\fadeb219f740ecdd85ff9dbb9af519f4a0a2d93c
+g
+7src/main/java/com/paqattack/gui_template/data/Rank.java,3\f\3fb5aee800f6a22443c1a03450e617221fb2b1c5
+n
+>src/main/java/com/paqattack/gui_template/data/ScannedData.java,c\6\c653719f317240b89a2cef3546a3bf382e8969cb
+q
+Asrc/main/java/com/paqattack/gui_template/windows/NewEmployee.java,8\5\85d0583c4ad5a9134ebc3e2241a9a91fddec79b0
