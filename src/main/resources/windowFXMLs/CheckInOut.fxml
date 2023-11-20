@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="backPane" prefHeight="720.0" prefWidth="1025.0" style="-fx-background-color: #222222;" stylesheets="@../cssStyles/myStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="backPane" prefHeight="720.0" prefWidth="1025.0" style="-fx-background-color: #222222;" stylesheets="@../cssStyles/myStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="scanBox" layoutX="269.0" layoutY="105.0" prefHeight="85.0" prefWidth="487.0" styleClass="textfield-label" />
-      <Label alignment="CENTER" layoutX="347.0" layoutY="54.0" prefHeight="39.0" prefWidth="319.0" styleClass="exit" stylesheets="@../cssStyles/myStyle.css" text="SCAN CAC HERE" textFill="#149a36">
+      <TextField fx:id="scanBox" layoutX="344.0" layoutY="107.0" prefHeight="85.0" prefWidth="487.0" styleClass="textfield-design" />
+      <Label alignment="CENTER" layoutX="422.0" layoutY="56.0" prefHeight="39.0" prefWidth="319.0" styleClass="exit" stylesheets="@../cssStyles/myStyle.css" text="SCAN CAC HERE" textFill="#149a36">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="clearScanBtn" layoutX="491.0" layoutY="196.0" mnemonicParsing="false" styleClass="clear-button" text="Clear" textFill="#00bc1c" />
+      <Button fx:id="clearScanBtn" layoutX="566.0" layoutY="198.0" mnemonicParsing="false" styleClass="clear-button" text="Clear" textFill="#00bc1c" />
       <ListView fx:id="entryListView" layoutX="194.0" layoutY="304.0" prefHeight="386.0" prefWidth="637.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
       <ImageView fitHeight="41.0" fitWidth="637.0" layoutX="194.0" layoutY="263.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../Users/cpaqu/OneDrive/Pictures/window2.PNG" />
+            <Image url="@../windowImages/window2.PNG" />
          </image>
       </ImageView>
+      <CheckBox fx:id="bldgChk" layoutX="194.0" layoutY="110.0" mnemonicParsing="false" selected="true" text="Building" textFill="#149a36">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="bedCheck" layoutX="194.0" layoutY="158.0" mnemonicParsing="false" text="Beddown" textFill="#149a36">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </CheckBox>
    </children>
 </fx:root>

@@ -5,12 +5,16 @@ public class ScannedData {
     String last;
     String first;
     String rank;
+    boolean checkinBldg;
+    boolean checkinBed;
 
-    public ScannedData(String id, String last, String first, String rank) {
+    public ScannedData(String id, String last, String first, String rank, boolean checkInEvent, boolean beddownEvent) {
         this.id = id;
         this.last = last;
         this.first = first;
         this.rank = rank;
+        this.checkinBldg = checkInEvent;
+        this.checkinBed = beddownEvent;
     }
 
     public String getId() {
@@ -27,6 +31,14 @@ public class ScannedData {
 
     public String getRank() {
         return rank;
+    }
+
+    public boolean isCheckinBldg() {
+        return checkinBldg;
+    }
+
+    public boolean isCheckinBed() {
+        return checkinBed;
     }
 
     @Override

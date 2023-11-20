@@ -35,6 +35,11 @@ public class Session {
         employees.add(employee);
     }
 
+    public Employee addAndGetEmployee(Employee employee) {
+        employees.add(employee);
+        return employee;
+    }
+
     public void addEntry(ListEntry entry) {
         entries.add(entry);
     }

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -69,11 +70,29 @@ public class NewEmployee extends AnchorPane implements Updatable  {
 
         genderChoice.setOnAction(e -> updateBeds());
         addWorkcenterBtn.setOnMouseClicked(e -> addWorkcenter());
+        doneBtn.setOnMouseClicked(e -> saveNewEmployee());
     }
 
     public ScannedData getScannedData() {
         return scannedData;
     }
+
+    private void saveNewEmployee() {
+        String name = nameTxt.getText();
+        String uid = uidTxt.getText();
+        Rank rank = new Rank(rankChoice.getValue());
+        Workcenter workcenter = new Workcenter(workcenterChoice.getValue());
+        Gender gender = genderChoice.getValue().toUpperCase().startsWith("F")? Gender.FEMALE : Gender.MALE;
+
+        Bed bed = assignBedChoice.getValue();
+
+        Employee emp = Session.getSession().addAndGetEmployee(new Employee(uid, name, rank, gender, workcenter, bed));
+        Session.getSession().addEntry(new ListEntry(emp, new DateTime(), scannedData.isCheckinBldg(), scannedData.isCheckinBed()));
+        windowManager.setWindowLock(false);
+        windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT);
+    }
+
+    //TODO Add code for save without exit
 
     public void setScannedData(ScannedData scannedData) {
         this.scannedData = scannedData;

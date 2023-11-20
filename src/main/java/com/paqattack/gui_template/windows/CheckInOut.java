@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +31,10 @@ public class CheckInOut extends AnchorPane implements Updatable {
     Button clearScanBtn;
     @FXML
     ListView<ListEntry> entryListView;
+    @FXML
+    CheckBox bedCheck;
+    @FXML
+    CheckBox bldgChk;
     private PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
 
     public CheckInOut(WindowManager windowManager) {
@@ -51,6 +56,11 @@ public class CheckInOut extends AnchorPane implements Updatable {
         clearScanBtn.setOnAction(event -> scanBox.clear());
         pause.setOnFinished(event -> processScan());
         scanBox.setOnKeyTyped(event -> extendTimer());
+        bedCheck.setOnAction(event -> {
+            if (!bedCheck.isSelected()) {
+                bldgChk.setSelected(true);
+            }
+        });
     }
 
     private void extendTimer() {
@@ -80,14 +90,15 @@ public class CheckInOut extends AnchorPane implements Updatable {
 
             Employee emp = Employee.getEmployeeFromUID(id);
             if (emp != null) {
-                Session.getSession().addEntry(new ListEntry(emp, new DateTime(), true, false));
+                Session.getSession().addEntry(new ListEntry(emp, new DateTime(), bldgChk.isSelected(), bedCheck.isSelected()));
                 logger.log(Level.INFO, "Employee {0} checked in", emp.getName());
             } else {
                 //new employee
-                ScannedData sd = new ScannedData(id, first, last, rank);
+                ScannedData sd = new ScannedData(id, first, last, rank, bldgChk.isSelected(), bedCheck.isSelected());
                 logger.log(Level.INFO, "New employee scanned: {0}", sd);
                 windowManager.passNewEmployeeData(sd);
                 windowManager.selectWindow(WindowManager.BeddownWindow.NEW_PLAYER);
+                windowManager.setWindowLock(true);
             }
         } else {
             //not a valid scan
