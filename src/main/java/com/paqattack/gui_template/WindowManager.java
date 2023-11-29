@@ -1,5 +1,6 @@
 package com.paqattack.gui_template;
 
+import com.paqattack.gui_template.data.Employee;
 import com.paqattack.gui_template.data.ScannedData;
 import com.paqattack.gui_template.windows.*;
 import javafx.scene.Node;
@@ -22,7 +23,7 @@ public class WindowManager {
         STATUS,
         CHECKINOUT,
         MANAGE,
-        NEW_PLAYER
+        NEW_AIRMEN
     }
 
     //region Windows
@@ -106,7 +107,7 @@ public class WindowManager {
                 mainWindow.setCenter(manage);
                 manage.update();
             }
-            case NEW_PLAYER -> {
+            case NEW_AIRMEN -> {
                 mainWindow.setCenter(newEmployee);
                 newEmployee.update();
             }
@@ -131,5 +132,9 @@ public class WindowManager {
 
     public void passNewEmployeeData(ScannedData sd) {
         newEmployee.setScannedData(sd);
+    }
+
+    public void passEmployeeData(Employee emp) {
+        newEmployee.setEmployeeBeingUpdated(emp);
     }
 }

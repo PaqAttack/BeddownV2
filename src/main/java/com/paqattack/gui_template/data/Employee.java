@@ -2,6 +2,7 @@ package com.paqattack.gui_template.data;
 
 import com.paqattack.gui_template.Session;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Employee {
@@ -13,7 +14,8 @@ public class Employee {
     private Rank rank;
     private Workcenter workcenter;
     private Bed bed;
-    private boolean inside = true;
+    private boolean noBed = false;
+    private boolean inside = false;
     private boolean inBed = false;
 
     public Employee(String uid, String name, Rank rank, Gender gender, Workcenter workcenter) {
@@ -23,6 +25,7 @@ public class Employee {
         this.gender = gender;
         this.workcenter = workcenter;
         bed = null;
+        noBed = true;
     }
 
     public Employee(String uid, String name, Rank rank, Gender gender, Workcenter workcenter, Bed bed) {
@@ -33,9 +36,11 @@ public class Employee {
         this.workcenter = workcenter;
         if (bed.assign(this)) {
             this.bed = bed;
+            noBed = false;
         } else {
             logger.warning("Bed " + bed.getName() + " is already assigned to " + bed.getOccupierName());
             this.bed = null;
+            noBed = true;
         }
 
     }
@@ -105,11 +110,22 @@ public class Employee {
     }
 
     public void setBed(Bed bed) {
-        this.bed = bed;
+        if (bed.assign(this)) {
+            this.bed = bed;
+            noBed = false;
+        } else {
+            String error = "Bed (" + bed.getName() + ") already assigned to " + bed.getOccupierName() + ". Cant be assigned to " + this.getName() + " this way.";
+            logger.log(Level.WARNING, error);
+        }
+
     }
 
     public boolean isInside() {
         return inside;
+    }
+
+    public void setIsInBed(boolean status) {
+        inBed = status;
     }
 
     public void setInside(boolean inside) {
@@ -118,6 +134,15 @@ public class Employee {
 
     public boolean isInBed() {
         return inBed;
+    }
+
+    public void unassignBed() {
+        if (bed != null) {
+            bed.unassign();
+            bed = null;
+            inBed = false;
+            noBed = true;
+        }
     }
 
     @Override

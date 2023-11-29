@@ -4,15 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="Many optimizations in code">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="added more changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/MyLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ScannedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ScannedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Bed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/CheckInOut.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Manage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Status.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windowFXMLs/Status.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +85,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -124,6 +129,10 @@
       <workItem from="1700272599774" duration="3032000" />
       <workItem from="1700279739226" duration="37068000" />
       <workItem from="1700368359601" duration="10793000" />
+      <workItem from="1700979247432" duration="52000" />
+      <workItem from="1701206724421" duration="1741000" />
+      <workItem from="1701226001044" duration="4302000" />
+      <workItem from="1701231344204" duration="5757000" />
     </task>
     <task id="LOCAL-00001" summary="Working on RSS Manager">
       <option name="closed" value="true" />
@@ -157,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700375889663</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added more changes">
+      <option name="closed" value="true" />
+      <created>1700494925257</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700494925257</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +185,7 @@
     <MESSAGE value="Working on RSS Manager" />
     <MESSAGE value="Adding core functionality" />
     <MESSAGE value="Many optimizations in code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Many optimizations in code" />
+    <MESSAGE value="added more changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more changes" />
   </component>
 </project>

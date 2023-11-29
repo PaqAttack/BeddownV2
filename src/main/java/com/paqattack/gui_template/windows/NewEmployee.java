@@ -14,12 +14,16 @@ import javafx.scene.layout.AnchorPane;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
+//TODO ADD BED NONE/RANDOM OPTIONS
 public class NewEmployee extends AnchorPane implements Updatable  {
     WindowManager windowManager;
     private ScannedData scannedData;
+    private Employee employeeBeingUpdated;
 
     @FXML
     TextField nameTxt;
@@ -34,7 +38,7 @@ public class NewEmployee extends AnchorPane implements Updatable  {
     @FXML
     ChoiceBox<String> workcenterChoice;
     @FXML
-    ChoiceBox<Bed> assignBedChoice;
+    ChoiceBox<String> assignBedChoice;
     @FXML
     Button addWorkcenterBtn;
     @FXML
@@ -71,6 +75,7 @@ public class NewEmployee extends AnchorPane implements Updatable  {
         genderChoice.setOnAction(e -> updateBeds());
         addWorkcenterBtn.setOnMouseClicked(e -> addWorkcenter());
         doneBtn.setOnMouseClicked(e -> saveNewEmployee());
+        exitwoSaveBtn.setOnMouseClicked(e -> exitWithoutSave());
     }
 
     public ScannedData getScannedData() {
@@ -84,18 +89,65 @@ public class NewEmployee extends AnchorPane implements Updatable  {
         Workcenter workcenter = new Workcenter(workcenterChoice.getValue());
         Gender gender = genderChoice.getValue().toUpperCase().startsWith("F")? Gender.FEMALE : Gender.MALE;
 
-        Bed bed = assignBedChoice.getValue();
+        String bedName = assignBedChoice.getValue();
+        Bed bed = null;
+        if (!bedName.equalsIgnoreCase("NONE")) {
+            bed = Session.getSession().getBedByName(bedName);
+        }
 
-        Employee emp = Session.getSession().addAndGetEmployee(new Employee(uid, name, rank, gender, workcenter, bed));
-        Session.getSession().addEntry(new ListEntry(emp, new DateTime(), scannedData.isCheckinBldg(), scannedData.isCheckinBed()));
+        if (scannedData != null) {
+            Employee emp;
+            if (bed == null) {
+                emp = Session.getSession().addAndGetEmployee(new Employee(uid, name, rank, gender, workcenter));
+            } else {
+                emp = Session.getSession().addAndGetEmployee(new Employee(uid, name, rank, gender, workcenter, bed));
+            }
+            emp.setInside(true);
+            Session.getSession().addEntry(new ListEntry(emp, new DateTime(), true, false));
+            scannedData = null;
+        }
+
+        if (employeeBeingUpdated != null) {
+
+            if (bed == null) {
+                if (employeeBeingUpdated.getBed() != null) {        // setting a person with a bed to no bed
+                    employeeBeingUpdated.unassignBed();
+                }
+            } else {   // If new bed selected....
+                if (employeeBeingUpdated.getBed() != null) { // unassign any previous bed
+                    employeeBeingUpdated.unassignBed();
+                }
+                employeeBeingUpdated.setBed(bed); // assign new bed
+            }
+
+            employeeBeingUpdated.setGender(gender);
+            employeeBeingUpdated.setName(name);
+            employeeBeingUpdated.setRank(rank);
+            employeeBeingUpdated.setWorkcenter(workcenter);
+            employeeBeingUpdated = null;
+        }
+
         windowManager.setWindowLock(false);
         windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT);
     }
 
-    //TODO Add code for save without exit
+    public void exitWithoutSave() {
+        scannedData = null;
+        windowManager.setWindowLock(false);
+        windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT);
+        logger.log(Level.INFO, "Exiting without saving employee changes");
+    }
 
     public void setScannedData(ScannedData scannedData) {
         this.scannedData = scannedData;
+        employeeBeingUpdated = null;
+        logger.log(Level.INFO, "New employee {0} scanned to be updated", scannedData.getLast());
+    }
+
+    public void setEmployeeBeingUpdated(Employee emp) {
+        this.employeeBeingUpdated = emp;
+        scannedData = null;
+        logger.log(Level.INFO, "Employee {0} selected to be updated", emp);
     }
 
     private void addWorkcenter() {
@@ -113,11 +165,27 @@ public class NewEmployee extends AnchorPane implements Updatable  {
     @Override
     public void update() {
         updateElements();
-        if (scannedData != null) {
-            nameTxt.setText(scannedData.getLast() + ", " + scannedData.getFirst());
-            uidTxt.setText(scannedData.getId());
-            rankChoice.setValue(scannedData.getRank());
-        }
+        Platform.runLater(() -> {
+            if (scannedData != null) {   // If adding newly scanned employee
+                nameTxt.setText(scannedData.getLast() + ", " + scannedData.getFirst());
+                uidTxt.setText(scannedData.getId());
+                rankChoice.setValue(scannedData.getRank());
+                return;
+            }
+            if (employeeBeingUpdated != null) {  // if managed existing employee
+                nameTxt.setText(employeeBeingUpdated.getName());
+                uidTxt.setText(employeeBeingUpdated.getUID());
+                rankChoice.setValue(employeeBeingUpdated.getRank().getAbbreviation());
+
+                if (employeeBeingUpdated.getBed() == null) {
+                    assignBedChoice.setValue("NONE");
+                } else {
+                    assignBedChoice.setValue(employeeBeingUpdated.getBed().getName());
+                }
+
+                workcenterChoice.setValue(employeeBeingUpdated.getWorkcenter().getName());
+            }
+        });
     }
 
     private void updateElements() {
@@ -131,12 +199,42 @@ public class NewEmployee extends AnchorPane implements Updatable  {
     }
 
     private void updateBeds() {
-        if (genderChoice.getValue().startsWith("M")) {
-            assignBedChoice.setItems(FXCollections.observableArrayList(Session.getSession().getUnassignedMaleBeds()));
-        } else if (genderChoice.getValue().startsWith("F")) {
-            assignBedChoice.setItems(FXCollections.observableArrayList(Session.getSession().getUnassignedFemaleBeds()));
+        if (genderChoice.getValue() != null && genderChoice.getValue().startsWith("M")) {
+            List<String> unassignedMaleBeds = new ArrayList<>(Session.getSession().getUnassignedMaleBeds().stream()
+                    .map(Bed::getName)
+                    .toList());
+            unassignedMaleBeds.add(0, "NONE");
+
+            if (employeeBeingUpdated != null && employeeBeingUpdated.getBed() != null) {
+                unassignedMaleBeds.add(1, employeeBeingUpdated.getBed().getName());
+            }
+
+            assignBedChoice.setItems(FXCollections.observableArrayList(unassignedMaleBeds));
+
+        } else if (genderChoice.getValue() != null && genderChoice.getValue().startsWith("F")) {
+
+            List<String> unassignedFemaleBeds = new ArrayList<>(Session.getSession().getUnassignedFemaleBeds().stream()
+                    .map(Bed::getName)
+                    .toList());
+            unassignedFemaleBeds.add(0, "NONE");
+
+            if (employeeBeingUpdated != null && employeeBeingUpdated.getBed() != null) {
+                unassignedFemaleBeds.add(1, employeeBeingUpdated.getBed().getName());
+            }
+
+            assignBedChoice.setItems(FXCollections.observableArrayList(unassignedFemaleBeds));
         } else {
-            assignBedChoice.setItems(FXCollections.observableArrayList(Session.getSession().getUnassignedBeds()));
+
+            List<String> unassignedBeds = new ArrayList<>(Session.getSession().getUnassignedBeds().stream()
+                    .map(Bed::getName)
+                    .toList());
+            unassignedBeds.add(0, "NONE");
+
+            if (employeeBeingUpdated != null && employeeBeingUpdated.getBed() != null) {
+                unassignedBeds.add(1, employeeBeingUpdated.getBed().getName());
+            }
+
+            assignBedChoice.setItems(FXCollections.observableArrayList(unassignedBeds));
         }
         assignBedChoice.setValue(assignBedChoice.getItems().get(0));
     }
@@ -152,7 +250,7 @@ public class NewEmployee extends AnchorPane implements Updatable  {
     }
 
     private void updateRanks() {
-        rankChoice.setItems(FXCollections.observableArrayList(Rank.getFullRanks()));
+        rankChoice.setItems(FXCollections.observableArrayList(Rank.getAbbrevRanks()));
         rankChoice.setValue("Amn");
     }
 }

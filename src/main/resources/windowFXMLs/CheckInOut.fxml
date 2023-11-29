@@ -13,7 +13,7 @@
 <fx:root fx:id="backPane" prefHeight="720.0" prefWidth="1025.0" style="-fx-background-color: #222222;" stylesheets="@../cssStyles/myStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="scanBox" layoutX="344.0" layoutY="107.0" prefHeight="85.0" prefWidth="487.0" styleClass="textfield-design" />
-      <Label alignment="CENTER" layoutX="422.0" layoutY="56.0" prefHeight="39.0" prefWidth="319.0" styleClass="exit" stylesheets="@../cssStyles/myStyle.css" text="SCAN CAC HERE" textFill="#149a36">
+      <Label alignment="CENTER" layoutX="422.0" layoutY="56.0" prefHeight="39.0" prefWidth="319.0" text="SCAN CAC HERE" textFill="#149a36">
          <font>
             <Font size="36.0" />
          </font>

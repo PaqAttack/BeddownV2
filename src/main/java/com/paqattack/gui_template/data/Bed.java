@@ -134,6 +134,12 @@ public class Bed {
         }
     }
 
+    public void unassign() {
+        assigned = false;
+        occupier = null;
+        uid = "0";
+    }
+
     public String getOccupierName() {
         return occupier.getName();
     }

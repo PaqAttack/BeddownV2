@@ -1,5 +1,6 @@
 package com.paqattack.gui_template.windows;
 
+import com.paqattack.gui_template.ResourceManager;
 import com.paqattack.gui_template.Session;
 import com.paqattack.gui_template.WindowManager;
 import com.paqattack.gui_template.data.Employee;
@@ -10,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
@@ -40,6 +43,8 @@ public class Status extends AnchorPane implements Updatable  {
     Button bedReporBtn;
     @FXML
     ListView<String> locationListView;
+    @FXML
+    ImageView backImg;
     final String newline = System.getProperty("line.separator");
     private static final Logger logger = Logger.getLogger(Status.class.getName());
 
@@ -60,6 +65,7 @@ public class Status extends AnchorPane implements Updatable  {
 
         bedReporBtn.setOnAction(event -> generateBeddownReport());
         locationReportBtn.setOnAction(event -> generateBldgReport());
+
     }
 
     public void updateLabels() {

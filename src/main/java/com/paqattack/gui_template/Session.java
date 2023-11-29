@@ -116,7 +116,7 @@ public class Session {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("DAT Files", "*.DAT"));
         File file = fileChooser.showOpenDialog(windowManager.getMainStage());
 
-        if (loadFile(file)) {
+        if (loadFile(file, false)) {
             windowManager.setWindowLock(false);
             windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT);
             return true;
@@ -125,7 +125,7 @@ public class Session {
         }
     }
 
-    private boolean loadFile(File file) {
+    public boolean loadFile(File file, boolean onlyAirmen) {
         if (file == null) {
             logger.log(Level.WARNING, "No file selected");
             return false;
@@ -150,11 +150,13 @@ public class Session {
 
                 switch (stage) {
                     case 1 -> {
-                        // create bed
-                        // name ; gender ; assigned 0 or designation
-                        String[] bed = line.split(";");
+                        if (!onlyAirmen) {
+                            // create bed
+                            // name ; gender ; assigned 0 or designation
+                            String[] bed = line.split(";");
 
-                        processBed(bed);
+                            processBed(bed);
+                        }
                     }
                     case 2 -> {
                         String[] person = line.split(";");
@@ -163,30 +165,34 @@ public class Session {
                         processEmployee(person);
                     }
                     case 3 -> {
-                        String[] listEvent = line.split(";");
+                        if (!onlyAirmen) {
+                            String[] listEvent = line.split(";");
 
-                        // uid ; time array 0-1-2-3-4-5 ; checkinBldg ; checkOutBldg ; checkIn Bed down ; checkIn Bed down
+                            // uid ; time array 0-1-2-3-4-5 ; checkinBldg ; checkOutBldg ; checkIn Bed down ; checkIn Bed down
 
-                        processEvent(listEvent);
+                            processEvent(listEvent);
+                        }
                     }
                     default -> logger.log(Level.WARNING, "Unable to load line: {0}", line);
                 }
             }
 
-            // go through all beds and connect employees to their beds
-            for (Bed bed : beds) {
-                String uid = bed.getUid();
+            if (!onlyAirmen) {
+                // go through all beds and connect employees to their beds
+                for (Bed bed : beds) {
+                    String uid = bed.getUid();
 
-                if (uid != null && !uid.equalsIgnoreCase("0")) {
-                    Employee emp = Employee.getEmployeeFromUID(uid);
-                    if (emp != null) {
-                        bed.assign(emp);
-                        emp.setBed(bed);
-                        logger.log(Level.INFO, "Assigned bed {0} to employee {1}", new Object[]{bed.getName(), uid});
-                    } else {
-                        logger.log(Level.WARNING, "Unable to assign bed {0} to employee {1}", new Object[]{bed.getName(), uid});
+                    if (uid != null && !uid.equalsIgnoreCase("0")) {
+                        Employee emp = Employee.getEmployeeFromUID(uid);
+                        if (emp != null) {
+                            bed.assign(emp);
+                            emp.setBed(bed);
+                            logger.log(Level.INFO, "Assigned bed {0} to employee {1}", new Object[]{bed.getName(), uid});
+                        } else {
+                            logger.log(Level.WARNING, "Unable to assign bed {0} to employee {1}", new Object[]{bed.getName(), uid});
+                        }
+
                     }
-
                 }
             }
             return true;
@@ -229,7 +235,7 @@ public class Session {
     private void processEmployee(String[] person) {
         try {
             Rank rank = new Rank(person[2]);
-            Workcenter wce = new Workcenter(person[3]);
+            Workcenter wce = new Workcenter(person[4]);
             Gender gender = person[3].toUpperCase().startsWith("F")? Gender.FEMALE : Gender.MALE;
 
             Employee emp = new Employee(person[0], person[1], rank, gender, wce);
@@ -317,5 +323,14 @@ public class Session {
             return false;
         }
         return true;
+    }
+
+    public Bed getBedByName(String name) {
+        for (Bed bed : beds) {
+            if (bed.getName().equalsIgnoreCase(name)) {
+                return bed;
+            }
+        }
+        return null;
     }
 }
