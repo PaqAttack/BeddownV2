@@ -16,6 +16,11 @@ public class Bed {
     private Employee occupier = null;
     private String uid = "0";
 
+    /**
+     * Creates a new Bed with a bed name and a gender
+     * @param name Name of bed object
+     * @param gender gender of bed object
+     */
     public Bed (String name, Gender gender) {
         this.gender = gender;
         this.name = name;
@@ -23,6 +28,13 @@ public class Bed {
         logger.log(Level.INFO, "Bed {0} created", name);
     }
 
+    /**
+     * Creates a new Bed with a bed name, gender and UID of employee
+     * This is done during loading of save files and the UID is used to connect employees after loading.
+     * @param name Name of bed object
+     * @param gender gender of bed object
+     * @param uid Unique ID of Employee to eb assigned to bed
+     */
     public Bed (String name, Gender gender, String uid) {
         this.gender = gender;
         this.name = name;
@@ -30,43 +42,18 @@ public class Bed {
         logger.log(Level.INFO, "Bed {0} created", name);
     }
 
-    public Bed (String name, String input) {
-        input = input.toUpperCase();
-        if (input.startsWith("F")) {
-            this.gender = Gender.FEMALE;
-        } else {
-            this.gender = Gender.MALE;
-        }
-        this.name = name;
-        this.uid = "0";
-        logger.log(Level.INFO, "Bed {0} created", name);
-    }
-
-    public Bed (String name, Employee employee) {
-        if (employee.getGender() == Gender.FEMALE) {
-            this.gender = Gender.FEMALE;
-        } else {
-            this.gender = Gender.MALE;
-        }
-        occupier = employee;
-        assigned = true;
-        this.name = name;
-        this.uid = employee.getUID();
-        logger.log(Level.INFO, String.format("Occupied bed %s created with employee: %s", name, getOccupierName()));
-    }
-
+    /**
+     * Gets gender assignment of bed
+     * @return Gender object (Gender.Male / Gender.Female)
+     */
     public Gender getGender() {
         return gender;
     }
 
-    public String getGenderStr() {
-        if (gender == Gender.FEMALE) {
-            return "Female";
-        } else {
-            return "Male";
-        }
-    }
-
+    /**
+     * Gets Name of the bed object
+     * @return String of bed name
+     */
     public String getName() {
         return name;
     }
@@ -83,6 +70,12 @@ public class Bed {
         return occupier;
     }
 
+    /**
+     * Loads provided bed file (*.CSV). This file must be in the format of BED NAME,GENDER on each line.
+     * Example: BED_1,Male
+     * @param file Provided *.CSV file from which beds will be loaded.
+     * @return boolean indicating success or failure.
+     */
     public static boolean loadBedFile(File file) {
 
         if (file == null) {
@@ -113,20 +106,29 @@ public class Bed {
         return true;
     }
 
+    /**
+     * Process the line from loadBedFile() and create bed. The line must be a 2 part line with a comma delimiter.
+     * @param line String from the file being loaded.
+     */
     private static void processLine(String line) {
         try {
             String[] bed = line.split(",");
-            Session.getSession().addBed(new Bed(bed[0], bed[1]));
+            Session.getSession().addBed(new Bed(bed[0], Gender.getGenderFromStr(bed[1])));
         } catch (Exception e) {
             logger.log(Level.WARNING, "Error creating bed from file - {0}", e.getMessage());
         }
     }
 
+    /**
+     * Assign bed to an employee
+     * @param employee Employee to be assigned as the new occupier of the bed.
+     * @return boolean indicating success or failure of assignment.
+     */
     public boolean assign(Employee employee) {
-        if (assigned) {
+        if (assigned) {  // If bed is already assigned...
             logger.log(Level.WARNING, String.format("Bed %s is already assigned to %s", name, getOccupierName()));
             return false;
-        } else {
+        } else {  // If bed is free to be assigned...
             assigned = true;
             occupier = employee;
             logger.log(Level.INFO, String.format("Bed %s assigned to %s", name, getOccupierName()));
@@ -134,6 +136,9 @@ public class Bed {
         }
     }
 
+    /**
+     * Disconnects bed from any Employees
+     */
     public void unassign() {
         assigned = false;
         occupier = null;

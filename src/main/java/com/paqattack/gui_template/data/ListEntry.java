@@ -6,40 +6,25 @@ public class ListEntry {
     private final Employee employee;
     private final DateTime time;
     private boolean checkInBldg = false;
-    private boolean checkOutBldg = false;
     private boolean checkInBeddown = false;
-    private boolean checkOutBeddown = false;
+    private boolean bedEvent = false;
+    private boolean bldgEvent = false;
 
     /**
-     * Create a ListEntry with a check-in event
-     *
-     * @param employee impacted employee
-     * @param time time of event
-     * @param checkInEvent true if check-in event
-     * @param beddownEvent true if beddown event
+     * Creates a new list entry.
+     * @param employee Employee reflected by event
+     * @param time The time this event occured
+     * @param buildingEvent was this a building in/out event?
+     * @param checkInBldg Did they check in
+     * @param beddownEvent Was this a beddown in/out event
+     * @param checkInBeddown Did they check in (to beddown)
      */
-    public ListEntry(Employee employee, DateTime time, boolean checkInEvent, boolean beddownEvent) {
-        this.employee = employee;
-
-        // The employee must be updated before the check-in event is recorded
-        if (checkInEvent) {
-            this.checkInBldg = employee.isInside();
-            this.checkOutBldg = !employee.isInside();
-        }
-        if (beddownEvent) {
-            this.checkInBeddown = employee.isInBed();
-            this.checkOutBeddown = !employee.isInBed();
-        }
-
-        this.time = time;
-    }
-
-    public ListEntry(Employee employee, DateTime time, boolean checkInBldg, boolean checkOutBldg, boolean checkInBeddown, boolean checkOutBeddown) {
+    public ListEntry(Employee employee, DateTime time, boolean buildingEvent, boolean checkInBldg, boolean beddownEvent, boolean checkInBeddown) {
+        bldgEvent = buildingEvent;
+        bedEvent = beddownEvent;
         this.employee = employee;
         this.checkInBldg = checkInBldg;
-        this.checkOutBldg = checkOutBldg;
         this.checkInBeddown = checkInBeddown;
-        this.checkOutBeddown = checkOutBeddown;
         this.time = time;
     }
 
@@ -47,6 +32,17 @@ public class ListEntry {
         return time;
     }
 
+    /**
+     * Converts elements of a DateTime object to the actual object. This is used when loading a dateTime from file
+     * as the elements are stored and saved in an array of ints and then converted back using this method.
+     * @param year int
+     * @param month int
+     * @param day int
+     * @param hour int
+     * @param minute int
+     * @param second int
+     * @return DateTime object
+     */
     public static DateTime getTime(int year, int month, int day, int hour, int minute, int second) {
         return new DateTime(year, month, day, hour, minute, second);
     }
@@ -72,37 +68,45 @@ public class ListEntry {
     public Employee getEmployee() {
         return employee;
     }
-
     public boolean isCheckInBldg() {
         return checkInBldg;
     }
-
-    public boolean isCheckOutBldg() {
-        return checkOutBldg;
-    }
-
     public boolean isCheckInBeddown() {
         return checkInBeddown;
     }
-
-    public boolean isCheckOutBeddown() {
-        return checkOutBeddown;
+    public boolean isBedEvent() {
+        return bedEvent;
+    }
+    public boolean isBldgEvent() {
+        return bldgEvent;
     }
 
+    /**
+     * Handles how events are displayed on the check in/out page.
+     * @return String
+     */
     @Override
     public String toString() {
         String status = employee.getName(20) + "    " + getTime().toString("HH:mm:ss dd-MMM-yy") + "    ";
 
         String bldg;
-        if (checkInBldg) {
-            bldg = "Checked In";
+        if (bldgEvent) {
+            if (checkInBldg) {
+                bldg = "Checked In";
+            } else {
+                bldg = "Checked Out";
+            }
         } else {
             bldg = "   N/A    ";
         }
 
         String beddown;
-        if (checkInBldg) {
-            beddown = "Checked In";
+        if (bedEvent) {
+            if (checkInBeddown) {
+                beddown = "Checked In";
+            } else {
+                beddown = "Checked Out";
+            }
         } else {
             beddown = "   N/A    ";
         }

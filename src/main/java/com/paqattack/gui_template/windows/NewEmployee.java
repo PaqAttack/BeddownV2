@@ -78,10 +78,6 @@ public class NewEmployee extends AnchorPane implements Updatable  {
         exitwoSaveBtn.setOnMouseClicked(e -> exitWithoutSave());
     }
 
-    public ScannedData getScannedData() {
-        return scannedData;
-    }
-
     private void saveNewEmployee() {
         String name = nameTxt.getText();
         String uid = uidTxt.getText();
@@ -103,7 +99,7 @@ public class NewEmployee extends AnchorPane implements Updatable  {
                 emp = Session.getSession().addAndGetEmployee(new Employee(uid, name, rank, gender, workcenter, bed));
             }
             emp.setInside(true);
-            Session.getSession().addEntry(new ListEntry(emp, new DateTime(), true, false));
+            Session.getSession().addEntry(new ListEntry(emp, new DateTime(), true, true, false, false));
             scannedData = null;
         }
 

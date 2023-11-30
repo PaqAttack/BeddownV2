@@ -185,7 +185,6 @@ public class Session {
                     if (uid != null && !uid.equalsIgnoreCase("0")) {
                         Employee emp = Employee.getEmployeeFromUID(uid);
                         if (emp != null) {
-                            bed.assign(emp);
                             emp.setBed(bed);
                             logger.log(Level.INFO, "Assigned bed {0} to employee {1}", new Object[]{bed.getName(), uid});
                         } else {
@@ -219,12 +218,12 @@ public class Session {
             String[] date = listEvent[1].split("-");
             DateTime time = ListEntry.getTime(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]), Integer.parseInt(date[3]), Integer.parseInt(date[4]), Integer.parseInt(date[5]));
 
-            boolean checkInBldg = listEvent[2].equalsIgnoreCase("1");
-            boolean checkOutBldg = listEvent[3].equalsIgnoreCase("1");
-            boolean checkInBeddown = listEvent[4].equalsIgnoreCase("1");
-            boolean checkOutBeddown = listEvent[5].equalsIgnoreCase("1");
+            boolean bldgEvent = listEvent[2].equalsIgnoreCase("1");
+            boolean checkInBldg = listEvent[3].equalsIgnoreCase("1");
+            boolean bedEvent = listEvent[4].equalsIgnoreCase("1");
+            boolean checkInBeddown = listEvent[5].equalsIgnoreCase("1");
 
-            ListEntry entry = new ListEntry(employee, time, checkInBldg, checkOutBldg, checkInBeddown, checkOutBeddown);
+            ListEntry entry = new ListEntry(employee, time, bldgEvent, checkInBldg, bedEvent, checkInBeddown);
             addEntry(entry);
             logger.log(Level.INFO, "Loaded list entry: {0}", entry);
         } catch (Exception e) {
@@ -293,7 +292,7 @@ public class Session {
 
             // name ; gender ; assigned 0 or designation
             for (Bed bed : beds) {
-                String currentBed = bed.getName() + ";" + bed.getGenderStr() + ";" + bed.getUid() + newline;
+                String currentBed = bed.getName() + ";" + Gender.getGenderStr(bed.getGender()) + ";" + bed.getUid() + newline;
                 bw.append(currentBed);
             }
 
@@ -313,7 +312,7 @@ public class Session {
                 int[] time = ListEntry.getTimeFromDateTime(le.getTime());
                 String timeStr = time[0] + "-" + time[1] + "-" + time[2] + "-" + time[3] + "-" + time[4] + "-" + time[5];
 
-                String currentList = le.getEmployee().getUID() + ";" + timeStr + ";" + (le.isCheckInBldg()? "1" : "0") + ";" + (le.isCheckOutBldg()? "1" : "0") + ";" + (le.isCheckInBeddown()? "1" : "0") + ";" + (le.isCheckOutBeddown()? "1" : "0") + newline;
+                String currentList = le.getEmployee().getUID() + ";" + timeStr + ";" + (le.isBldgEvent()? "1" : "0") + ";" + (le.isCheckInBldg()? "1" : "0") + ";" + (le.isBedEvent()? "1" : "0") + ";" + (le.isCheckInBeddown()? "1" : "0") + newline;
                 bw.append(currentList);
             }
 

@@ -91,27 +91,24 @@ public class CheckInOut extends AnchorPane implements Updatable {
             Employee emp = Employee.getEmployeeFromUID(id);
             if (emp != null) {
 
-                if (emp.isInside()) {  // if employee is inside currently
-                    if (bldgChk.isSelected()) {  // and this is a  bldg in/out
+                if (bldgChk.isSelected()) {// and this is a  bldg in/out
+                    if (emp.isInside()) {  // if employee is inside currently
                         emp.setInside(false);  // check out
-                    }
-                } else {    // if employee is outside
-                    if (bldgChk.isSelected()) {  // and this is a  bldg in/out
+                    } else {
                         emp.setInside(true);  // check in
                     }
                 }
 
-                if (emp.isInBed()) {  // if employee is in beddown status
-                    if (bldgChk.isSelected()) {  // and this is a  bed down in/out
+                if (bedCheck.isSelected()) {
+                    if (emp.isInBed()) {  // if employee is in beddown status
                         emp.setIsInBed(false);  // check out
-                    }
-                } else {    // if employee is not in bed
-                    if (bldgChk.isSelected()) {  // and this is a  bed down in/out
+                    } else {
                         emp.setIsInBed(true);  // check in
                     }
                 }
 
-                Session.getSession().addEntry(new ListEntry(emp, new DateTime(), bldgChk.isSelected(), bedCheck.isSelected()));
+                Session.getSession().addEntry(new ListEntry(emp, new DateTime(), bldgChk.isSelected(), emp.isInside(), bedCheck.isSelected(), emp.isInBed()));
+                update();
                 logger.log(Level.INFO, "Employee {0} checked in", emp.getName());
             } else {
                 //new employee

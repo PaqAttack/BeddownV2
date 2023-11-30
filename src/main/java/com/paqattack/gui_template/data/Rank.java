@@ -9,6 +9,10 @@ public class Rank {
     private String displayName;
     private String abbreviation;
 
+    /**
+     * Creates a rank object by sending a String to be evaluated.
+     * @param input String representing the rank.
+     */
     public Rank(String input) {
         translateInput(input.toUpperCase());
     }
