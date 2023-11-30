@@ -43,8 +43,6 @@ public class Status extends AnchorPane implements Updatable  {
     Button bedReporBtn;
     @FXML
     ListView<String> locationListView;
-    @FXML
-    ImageView backImg;
     final String newline = System.getProperty("line.separator");
     private static final Logger logger = Logger.getLogger(Status.class.getName());
 

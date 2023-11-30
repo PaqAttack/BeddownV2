@@ -35,6 +35,12 @@ public class CheckInOut extends AnchorPane implements Updatable {
     CheckBox bedCheck;
     @FXML
     CheckBox bldgChk;
+
+    /**
+     * When text is entered into the scan test box a timer is started and each character added, restarts the timer.
+     * This pause variable is the length of the timer. When the timer ends the scanned text is processed. If this is run on
+     * a very slow computer that scans data from buffer very slow this can be increased.
+     */
     private PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
 
     public CheckInOut(WindowManager windowManager) {
@@ -52,10 +58,13 @@ public class CheckInOut extends AnchorPane implements Updatable {
             logger.log(Level.WARNING, "Error loading FXML file from {0}", getClass().getName());
         }
 
+        // keep resetting the focus to the scan box to minimize frustration of needing to reselect it.
         backPane.setOnMouseMoved(event -> scanBox.requestFocus());
         clearScanBtn.setOnAction(event -> scanBox.clear());
         pause.setOnFinished(event -> processScan());
         scanBox.setOnKeyTyped(event -> extendTimer());
+
+        // Ensure that you can never have both buttons deselected.
         bedCheck.setOnAction(event -> {
             if (!bedCheck.isSelected()) {
                 bldgChk.setSelected(true);
@@ -68,8 +77,13 @@ public class CheckInOut extends AnchorPane implements Updatable {
         pause.playFromStart();
     }
 
+    /**
+     * Process scan from scan box.
+     */
     private void processScan() {
         String scannedText = scanBox.getText();
+
+        // Barcode M and N styles are the only ones supported.
         if (scannedText.length() > 80 && (scannedText.startsWith("M") || scannedText.startsWith("N"))) {
             String id = null;
             String first = null;
@@ -88,9 +102,10 @@ public class CheckInOut extends AnchorPane implements Updatable {
                 rank = scannedText.substring(74, 80).trim();
             }
 
+            // This will be null if the employee is not loaded.
             Employee emp = Employee.getEmployeeFromUID(id);
-            if (emp != null) {
 
+            if (emp != null) {  // Represents employee exists and a list entry should be made
                 if (bldgChk.isSelected()) {// and this is a  bldg in/out
                     if (emp.isInside()) {  // if employee is inside currently
                         emp.setInside(false);  // check out
@@ -110,10 +125,10 @@ public class CheckInOut extends AnchorPane implements Updatable {
                 Session.getSession().addEntry(new ListEntry(emp, new DateTime(), bldgChk.isSelected(), emp.isInside(), bedCheck.isSelected(), emp.isInBed()));
                 update();
                 logger.log(Level.INFO, "Employee {0} checked in", emp.getName());
-            } else {
-                //new employee
-                ScannedData sd = new ScannedData(id, first, last, rank, bldgChk.isSelected(), bedCheck.isSelected());
+            } else { // represents a new employee that needs to be send to the NEW_EMPLOYEE screen
+                ScannedData sd = new ScannedData(id, first, last, rank);
                 logger.log(Level.INFO, "New employee scanned: {0}", sd);
+
                 windowManager.passNewEmployeeData(sd);
                 windowManager.selectWindow(WindowManager.BeddownWindow.NEW_AIRMEN);
                 windowManager.setWindowLock(true);

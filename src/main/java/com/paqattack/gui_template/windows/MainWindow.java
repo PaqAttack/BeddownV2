@@ -3,7 +3,6 @@ package com.paqattack.gui_template.windows;
 import com.paqattack.gui_template.WindowManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +28,7 @@ public class MainWindow extends BorderPane implements Updatable  {
 
     @Override
     public void update() {
-        // TODO document why this method is empty
+        // Required interface for scenes but not required for the background one as it merely contains other
+        // scenes
     }
 }

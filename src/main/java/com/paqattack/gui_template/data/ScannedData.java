@@ -5,16 +5,19 @@ public class ScannedData {
     String last;
     String first;
     String rank;
-    boolean checkinBldg;
-    boolean checkinBed;
 
-    public ScannedData(String id, String last, String first, String rank, boolean checkInEvent, boolean beddownEvent) {
+    /**
+     * Creates a ScannedData object representing data scanned by the reader to be passed to the New_Employee scene
+     * @param id UID of the member (first 16 characters of PDF417 barcode (front of CAC)
+     * @param last String of last name of member
+     * @param first string of first name of member
+     * @param rank string of rank of member
+     */
+    public ScannedData(String id, String last, String first, String rank) {
         this.id = id;
         this.last = last;
         this.first = first;
         this.rank = rank;
-        this.checkinBldg = checkInEvent;
-        this.checkinBed = beddownEvent;
     }
 
     public String getId() {
@@ -33,14 +36,10 @@ public class ScannedData {
         return rank;
     }
 
-    public boolean isCheckinBldg() {
-        return checkinBldg;
-    }
-
-    public boolean isCheckinBed() {
-        return checkinBed;
-    }
-
+    /**
+     * Used for logger only
+     * @return String showing what data was scanned.
+     */
     @Override
     public String toString() {
         return "ScannedData{" + "id=" + id + ", last=" + last + ", first=" + first + ", rank=" + rank + '}';

@@ -140,6 +140,6 @@ public class StartUp extends AnchorPane implements Updatable  {
 
     @Override
     public void update() {
-        // TODO document why this method is empty
+        // Required interface for scenes but not required for this one
     }
 }

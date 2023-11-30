@@ -38,10 +38,6 @@ public class Sidebar extends VBox implements Updatable  {
             logger.log(Level.WARNING, "Error loading FXML file from {0}", getClass().getName());
         }
 
-        setUpButtonLinks();
-    }
-
-    private void setUpButtonLinks() {
         startUpBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.STARTUP));
         manageBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.MANAGE));
         checkBtn.setOnAction(event -> windowManager.selectWindow(WindowManager.BeddownWindow.CHECKINOUT));
@@ -50,6 +46,6 @@ public class Sidebar extends VBox implements Updatable  {
 
     @Override
     public void update() {
-        // TODO document why this method is empty
+        // Required interface for scenes but not required for this one
     }
 }

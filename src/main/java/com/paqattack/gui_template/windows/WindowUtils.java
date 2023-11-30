@@ -86,6 +86,12 @@ public class WindowUtils {
         }
     }
 
+    /**
+     * Update observable List of a list view with a list
+     * @param listView JavaFx element to show a list of elements
+     * @param list source of data
+     * @param <T> generic type
+     */
     public static <T> void updateObservableListView(ListView<T> listView, List<T> list) {
         if (listView != null && list != null) {
             ObservableList<T> observableList = FXCollections.observableArrayList(list);

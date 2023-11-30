@@ -92,26 +92,26 @@ public class ListEntry {
         String bldg;
         if (bldgEvent) {
             if (checkInBldg) {
-                bldg = "Checked In";
+                bldg = "Checked In ";
             } else {
                 bldg = "Checked Out";
             }
         } else {
-            bldg = "   N/A    ";
+            bldg = "    N/A    ";
         }
 
         String beddown;
         if (bedEvent) {
             if (checkInBeddown) {
-                beddown = "Checked In";
+                beddown = "Checked In ";
             } else {
                 beddown = "Checked Out";
             }
         } else {
-            beddown = "   N/A    ";
+            beddown = "    N/A    ";
         }
 
-        return status + "    " + bldg + "    " + beddown;
+        return status + "  " + bldg + "  " + beddown;
     }
 
 }
