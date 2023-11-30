@@ -23,6 +23,7 @@ import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+    // TODO ADD BED MANAGEMENT
 public class Manage extends AnchorPane implements Updatable {
     WindowManager windowManager;
     @FXML

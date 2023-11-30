@@ -20,35 +20,10 @@ public class ResourceManager {
     /**
      * Loads the requested file from the extracted files location if available and then from resources if it wasn't found.
      * @param path The path to the resource.
-     * @return The input stream of the resource.
+     * @return The string reference to the located resource.
      * @throws IOException If the resource could not be extracted.
      */
-//    public InputStream getInputStreamResource(String path) throws IOException {
-//
-//        // check if file exists in extracted resourcePath
-//        File rssDir = new File(extractedLocationPath + path);
-//        if (rssDir.exists()) {
-//            logger.log(Level.INFO, "Resource found at extracted location: {0}", extractedLocationPath + path);
-//            return Files.newInputStream(Paths.get(extractedLocationPath + path));
-//        } else {
-//            logger.log(Level.INFO, "Resource not found at extracted location: {0}", extractedLocationPath + path);
-//        }
-//
-//        // check if file exists in rssRoot
-//        InputStream is = getClass().getResourceAsStream(rssPath + path);
-//        if (is != null) {
-//            logger.log(Level.INFO, "Resource found at resources location: {0}", rssPath + path);
-//            return is;
-//        } else {
-//            logger.log(Level.INFO, "Resource not found at resources location: {0}", rssPath + path);
-//        }
-//
-//        logger.log(Level.WARNING, "Resource not found anywhere: {0}", path);
-//        throw new IOException("Resource not found anywhere: " + path);
-//    }
-
     public String getResourceAbsoluteFilePath(String path) throws IOException {
-
         // check if file exists in extracted resourcePath
         File rssDir = new File(extractedLocationPath + path);
         if (rssDir.exists()) {
@@ -72,6 +47,11 @@ public class ResourceManager {
         throw new IOException("Resource not found anywhere: " + path);
     }
 
+    /**
+     * Extracts resource to path in file system allowing user to override used file as extracted files are loaded over unextracted versions.
+     * @param path String showing path from resource root of a resource
+     * @throws IOException We dont have about exceptions! no no no (Or Bruno)
+     */
     public void extractResource(String path) throws IOException {
         File rssDir = new File(extractedLocationPath + path);
         if (rssDir.exists()) {

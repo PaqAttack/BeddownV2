@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This is essentially a database of data and centralized methods. This handles all data.
+ */
 public class Session {
     private static final Logger logger = Logger.getLogger(Session.class.getName());
     private final List<Bed> beds = new ArrayList<>();
@@ -125,6 +128,12 @@ public class Session {
         }
     }
 
+    /**
+     * Load saved file from this program.
+     * @param file file from which data will be loaded.
+     * @param onlyAirmen Load all data or just Employee data
+     * @return boolean indicating success or failure.
+     */
     public boolean loadFile(File file, boolean onlyAirmen) {
         if (file == null) {
             logger.log(Level.WARNING, "No file selected");

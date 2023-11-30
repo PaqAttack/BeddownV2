@@ -6,19 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="67e60542-2cde-4640-9cc9-57c9a0d84d58" name="Changes" comment="added documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/MyLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ListEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ScannedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/ScannedData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/data/Workcenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/utils/DateTimeComparator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/CheckInOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ProgramEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ProgramEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/WindowManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Manage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/NewEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/StartUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/paqattack/gui_template/windows/WindowUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +128,7 @@
       <workItem from="1701226001044" duration="4302000" />
       <workItem from="1701231344204" duration="6968000" />
       <workItem from="1701359751135" duration="8688000" />
-      <workItem from="1701372337226" duration="5369000" />
+      <workItem from="1701372337226" duration="6097000" />
     </task>
     <task id="LOCAL-00001" summary="Working on RSS Manager">
       <option name="closed" value="true" />
@@ -193,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701368675728</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added documentation">
+      <option name="closed" value="true" />
+      <created>1701377725136</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701377725136</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

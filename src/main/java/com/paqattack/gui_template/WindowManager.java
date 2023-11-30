@@ -36,7 +36,6 @@ public class WindowManager {
     NewEmployee newEmployee = new NewEmployee(this);
     //endregion
 
-
     public WindowManager(Stage stage) {
 
         // Save stage
