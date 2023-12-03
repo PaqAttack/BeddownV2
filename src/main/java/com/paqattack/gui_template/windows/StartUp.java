@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+//TODO Fix help file
 public class StartUp extends AnchorPane implements Updatable  {
     WindowManager windowManager;
     @FXML Button helpCreateBedBtn;

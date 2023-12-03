@@ -20,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-// TODO ADD BED MANAGEMENT
+// TODO ADD Employee filtering
 public class Manage extends AnchorPane implements Updatable {
     WindowManager windowManager;
     @FXML

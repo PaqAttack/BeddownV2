@@ -1,0 +1,7 @@
+CHECK IN/OUT REPORT
+
+PAQUIN, CHRISTOPHER     06:13:54 04-Dec-23      Checked In        N/A    
+PAQUIN, CHRISTOPHER     06:13:57 04-Dec-23      Checked Out       N/A    
+PAQUIN, CHRISTOPHER     06:14:03 04-Dec-23      Checked In        N/A    
+PAQUIN, CHRISTOPHER     06:14:36 04-Dec-23      Checked Out   Checked In 
+PAQUIN, CHRISTOPHER     06:14:40 04-Dec-23      Checked In    Checked Out

@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// TODO Add code for manage selected button
+
 public class CheckInOut extends AnchorPane implements Updatable {
     WindowManager windowManager;
     private static final Logger logger = Logger.getLogger(CheckInOut.class.getName());
