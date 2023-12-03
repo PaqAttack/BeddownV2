@@ -111,7 +111,9 @@ public class ListEntry {
             beddown = "    N/A    ";
         }
 
-        return status + "  " + bldg + "  " + beddown;
+        return status + "  " + bldg + "   " + beddown;
     }
+
+
 
 }

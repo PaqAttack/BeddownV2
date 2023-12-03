@@ -30,8 +30,18 @@ public class Session {
         Session.setSession(this);
     }
 
-    public void addBed(Bed bed) {
-        beds.add(bed);
+    public void addBed(Bed newBed) {
+        for (Bed bed : beds) {
+            if (newBed.getName().equalsIgnoreCase(bed.getName())) {
+                logger.log(Level.INFO, "Duplicate bed imported. Bed skipped");
+                return;
+            }
+        }
+        beds.add(newBed);
+    }
+
+    public void removeBed(Bed bed) {
+        beds.remove(bed);
     }
 
     public void addEmployee(Employee employee) {

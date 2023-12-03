@@ -19,8 +19,8 @@
          </font>
       </Label>
       <Button fx:id="clearScanBtn" layoutX="566.0" layoutY="198.0" mnemonicParsing="false" styleClass="clear-button" text="Clear" textFill="#00bc1c" />
-      <ListView fx:id="entryListView" layoutX="194.0" layoutY="304.0" prefHeight="386.0" prefWidth="637.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
-      <ImageView fitHeight="41.0" fitWidth="637.0" layoutX="194.0" layoutY="263.0" pickOnBounds="true">
+      <ListView fx:id="entryListView" layoutX="185.0" layoutY="292.0" prefHeight="380.0" prefWidth="656.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
+      <ImageView fitHeight="41.0" fitWidth="656.0" layoutX="186.0" layoutY="248.0" pickOnBounds="true">
          <image>
             <Image url="@../windowImages/window2.PNG" />
          </image>
@@ -35,5 +35,7 @@
             <Font size="23.0" />
          </font>
       </CheckBox>
+      <Button fx:id="genReport" layoutX="397.0" layoutY="680.0" mnemonicParsing="false" styleClass="update-button" stylesheets="@../cssStyles/myStyle.css" text="Generate Report" />
+      <Button fx:id="mngSelected" layoutX="523.0" layoutY="680.0" mnemonicParsing="false" styleClass="update-button" stylesheets="@../cssStyles/myStyle.css" text="Manage Selected" />
    </children>
 </fx:root>

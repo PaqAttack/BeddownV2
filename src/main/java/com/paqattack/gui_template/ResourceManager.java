@@ -1,5 +1,6 @@
 package com.paqattack.gui_template;
 
+import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -74,5 +75,25 @@ public class ResourceManager {
         }
     }
 
+    public static void openSaveFile(String path) {
+        if (!Desktop.isDesktopSupported()) {
+            logger.log(Level.WARNING, "Desktop is not supported (fatal)");
+            return;
+        }
+
+        Desktop desktop = Desktop.getDesktop();
+        if (!desktop.isSupported(Desktop.Action.OPEN)) {
+            logger.log(Level.WARNING, "Desktop is not supported (fatal)");
+            return;
+        }
+
+        try {
+            File file = new File(path);
+            logger.log(Level.INFO, "Opening save file: {0}", file.getAbsolutePath());
+            desktop.open(file);
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Error opening help file: {0}", e.getMessage());
+        }
+    }
 
 }

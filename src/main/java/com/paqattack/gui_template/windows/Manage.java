@@ -2,16 +2,11 @@ package com.paqattack.gui_template.windows;
 
 import com.paqattack.gui_template.Session;
 import com.paqattack.gui_template.WindowManager;
-import com.paqattack.gui_template.data.Employee;
-import com.paqattack.gui_template.data.Gender;
-import com.paqattack.gui_template.data.Rank;
-import com.paqattack.gui_template.data.Workcenter;
+import com.paqattack.gui_template.data.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
@@ -20,18 +15,26 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Comparator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
-    // TODO ADD BED MANAGEMENT
+// TODO ADD BED MANAGEMENT
 public class Manage extends AnchorPane implements Updatable {
     WindowManager windowManager;
     @FXML
     ListView<Employee> empList;
     @FXML
-    Button mngSelectedBtn, importAirmenOld, importAirmen;
+    ListView<Bed> bedList;
     @FXML
-    Label importAirmenLabel, importAirmenLabelOld;
+    Button mngSelectedBtn, importAirmenOld, importAirmen, importBeds, deleteBed, unassignBed;
+    @FXML
+    Label importAirmenLabel, importAirmenLabelOld, bedLabel;
+    @FXML
+    CheckBox InUseBeds;
+    @FXML
+    RadioButton allBed, maleBed, femaleBed, allAssigned, assignedBeds, unassignedBeds;
 
     private static final Logger logger = Logger.getLogger(Manage.class.getName());
 
@@ -53,6 +56,99 @@ public class Manage extends AnchorPane implements Updatable {
         mngSelectedBtn.setOnMouseClicked(e -> transferAirmen());
         importAirmen.setOnMouseClicked((e -> importAirmen()));
         importAirmenOld.setOnMouseClicked(e-> importOldAirmen());
+
+        allBed.setOnAction(e -> updateBeds());
+        maleBed.setOnAction(e -> updateBeds());
+        femaleBed.setOnAction(e -> updateBeds());
+
+        allAssigned.setOnMouseClicked(e -> updateBeds());
+        assignedBeds.setOnMouseClicked(e -> updateBeds());
+        unassignedBeds.setOnMouseClicked(e -> updateBeds());
+
+        InUseBeds.setOnAction(e-> updateBeds());
+        unassignBed.setOnAction(e->unassignBed());
+        deleteBed.setOnAction(e->deleteBed());
+        importBeds.setOnAction(e->importBeds());
+    }
+
+    private void importBeds() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.CSV"));
+        File file = fileChooser.showOpenDialog(windowManager.getMainStage());
+
+        if (Bed.loadBedFile(file)) {
+            WindowUtils.showStatusLabel(bedLabel, "G", "Imported bed file");
+        } else {
+            WindowUtils.showStatusLabel(bedLabel, "R", "Error loading bed file");
+        }
+        update();
+    }
+
+    private void deleteBed() {
+        if (bedList.getSelectionModel().getSelectedItem() != null) {
+            if (bedList.getSelectionModel().getSelectedItem().getOccupier() != null) {
+                bedList.getSelectionModel().getSelectedItem().getOccupier().unassignBed();
+                logger.log(Level.INFO, "Bed {0} unassigned", bedList.getSelectionModel().getSelectedItem().getName());
+            }
+            Session.getSession().removeBed(bedList.getSelectionModel().getSelectedItem());
+            WindowUtils.showStatusLabel(bedLabel, "G", "Bed Deleted");
+        } else {
+            WindowUtils.showStatusLabel(bedLabel, "R", "No Bed Selected");
+            logger.log(Level.INFO, "Bed unassignment attempted but no bed selected.");
+        }
+        update();
+    }
+
+
+    private void unassignBed() {
+        if (bedList.getSelectionModel().getSelectedItem() != null) {
+            if (bedList.getSelectionModel().getSelectedItem().getOccupier() != null) {
+                bedList.getSelectionModel().getSelectedItem().getOccupier().unassignBed();
+                WindowUtils.showStatusLabel(bedLabel, "G", "Bed unassigned");
+                logger.log(Level.INFO, "Bed {0} unassigned", bedList.getSelectionModel().getSelectedItem().getName());
+            } else {
+                WindowUtils.showStatusLabel(bedLabel, "R", "Bed is unoccupied");
+                logger.log(Level.INFO, "Bed {0} unassignment attempted but no employee assigned.", bedList.getSelectionModel().getSelectedItem().getName());
+            }
+        } else {
+            WindowUtils.showStatusLabel(bedLabel, "R", "No Bed Selected");
+            logger.log(Level.INFO, "Bed unassignment attempted but no bed selected.");
+        }
+        update();
+    }
+
+    public void updateBeds() {
+        List<Bed> bedsToShow;
+
+        if (allAssigned.isSelected()) {
+            bedsToShow = Session.getSession().getBeds();
+        } else if (assignedBeds.isSelected()) {
+            bedsToShow = Session.getSession().getAssignedBeds();
+        } else if (unassignedBeds.isSelected()) {
+            bedsToShow = Session.getSession().getUnassignedBeds();
+        } else {
+            logger.log(Level.WARNING, "Unable to determine selection assignment mode for bed management");
+            bedsToShow = Session.getSession().getBeds();
+        }
+
+        if (maleBed.isSelected()) {
+            bedsToShow = bedsToShow.stream().filter(e-> e.getGender() == Gender.MALE).collect(Collectors.toList());
+        } else if (femaleBed.isSelected()) {
+            bedsToShow = bedsToShow.stream().filter(e-> e.getGender() == Gender.FEMALE).collect(Collectors.toList());
+        }
+
+        if (InUseBeds.isSelected()) {
+            try {
+                bedsToShow = bedsToShow.stream().filter(e -> (e.isAssigned() && e.getOccupier().isInBed())).collect(Collectors.toList());
+            } catch (Exception exception) {
+                logger.log(Level.WARNING, "Error getting occupier isInBed on manage page filtering. {0}", exception.getMessage());
+                InUseBeds.setSelected(false);
+                InUseBeds.setText("ERROR");
+                InUseBeds.setVisible(false);
+            }
+        }
+        WindowUtils.updateObservableListView(bedList, bedsToShow);
     }
 
     private void transferAirmen() {
@@ -68,9 +164,12 @@ public class Manage extends AnchorPane implements Updatable {
     @Override
     public void update() {
         // sort by last name
-        Platform.runLater(() -> WindowUtils.updateObservableListView(empList, Session.getSession().getEmployees().stream()
-                .sorted(Comparator.comparing(Employee::getName))
-                .toList()));
+        Platform.runLater(() -> {
+            WindowUtils.updateObservableListView(empList, Session.getSession().getEmployees().stream()
+                    .sorted(Comparator.comparing(Employee::getName))
+                    .toList());
+            updateBeds();
+        });
     }
 
     private void importAirmen() {

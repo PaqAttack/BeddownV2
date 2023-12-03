@@ -115,7 +115,6 @@ public class Status extends AnchorPane implements Updatable  {
             bw.append("Currently Assigned Beds: ").append(String.valueOf(Session.getSession().getAssignedBeds().size())).append(newline);
             bw.append("Total beds at facility: ").append(String.valueOf(Session.getSession().getBeds().size())).append(newline).append(newline);
 
-
             for (String section : Workcenter.getWorkcenterNames()) {
                 bw.append(section.toUpperCase()).append(":").append(newline);
                 for (Employee emp : emps) {
@@ -139,7 +138,7 @@ public class Status extends AnchorPane implements Updatable  {
         } catch (IOException e) {
             logger.log(Level.WARNING, "Error saving bed file");
         }
-        openSaveFile(newFile.getAbsolutePath());
+        ResourceManager.openSaveFile(newFile.getAbsolutePath());
     }
 
     public void generateBldgReport() {
@@ -186,27 +185,6 @@ public class Status extends AnchorPane implements Updatable  {
             logger.log(Level.WARNING, "Error saving building file");
         }
 
-        openSaveFile(newFile.getAbsolutePath());
-    }
-
-    private void openSaveFile(String path) {
-        if (!Desktop.isDesktopSupported()) {
-            logger.log(Level.WARNING, "Desktop is not supported (fatal)");
-            return;
-        }
-
-        Desktop desktop = Desktop.getDesktop();
-        if (!desktop.isSupported(Desktop.Action.OPEN)) {
-            logger.log(Level.WARNING, "Desktop is not supported (fatal)");
-            return;
-        }
-
-        try {
-            File file = new File(path);
-            logger.log(Level.INFO, "Opening save file: {0}", file.getAbsolutePath());
-            desktop.open(file);
-        } catch (IOException e) {
-            logger.log(Level.WARNING, "Error opening help file: {0}", e.getMessage());
-        }
+        ResourceManager.openSaveFile(newFile.getAbsolutePath());
     }
 }

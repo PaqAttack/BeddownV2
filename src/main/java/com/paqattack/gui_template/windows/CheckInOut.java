@@ -1,22 +1,27 @@
 package com.paqattack.gui_template.windows;
 
+import com.paqattack.gui_template.ResourceManager;
 import com.paqattack.gui_template.Session;
 import com.paqattack.gui_template.WindowManager;
 import com.paqattack.gui_template.data.Employee;
 import com.paqattack.gui_template.data.ListEntry;
 import com.paqattack.gui_template.data.ScannedData;
+import com.paqattack.gui_template.data.Workcenter;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import org.joda.time.DateTime;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,13 +33,14 @@ public class CheckInOut extends AnchorPane implements Updatable {
     @FXML
     AnchorPane backPane;
     @FXML
-    Button clearScanBtn;
+    Button clearScanBtn, genReport;
     @FXML
     ListView<ListEntry> entryListView;
     @FXML
     CheckBox bedCheck;
     @FXML
     CheckBox bldgChk;
+    final String newline = System.getProperty("line.separator");
 
     /**
      * When text is entered into the scan test box a timer is started and each character added, restarts the timer.
@@ -64,6 +70,8 @@ public class CheckInOut extends AnchorPane implements Updatable {
         pause.setOnFinished(event -> processScan());
         scanBox.setOnKeyTyped(event -> extendTimer());
 
+        genReport.setOnAction(e -> generateReport());
+
         // Ensure that you can never have both buttons deselected.
         bedCheck.setOnAction(event -> {
             if (!bedCheck.isSelected()) {
@@ -71,6 +79,37 @@ public class CheckInOut extends AnchorPane implements Updatable {
             }
         });
     }
+
+    public void generateReport() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.TXT"));
+        fileChooser.setTitle("Save Events Report");
+        File file = fileChooser.showSaveDialog(windowManager.getMainStage());
+
+        saveEventnFile(file);
+    }
+
+    private void saveEventnFile(File file) {
+        List<Employee> emps = Session.getSession().getBeddownCheckedInEmployees();
+
+        try (FileWriter fw = new FileWriter(file.getAbsoluteFile());
+             BufferedWriter bw = new BufferedWriter(fw)) {
+
+            // write header & beds
+            bw.append("CHECK IN/OUT REPORT").append(newline).append(newline);
+
+            for (int i = 0; i < Session.getSession().getEntries().size(); i++) {
+                bw.append(Session.getSession().getEntries().get(i).toString()).append(newline);
+            }
+
+            logger.log(Level.INFO, "Beddown report saved successfully to {0}", file.getName());
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Error saving bed file");
+        }
+        ResourceManager.openSaveFile(file.getAbsolutePath());
+    }
+
 
     private void extendTimer() {
         pause.stop();
@@ -115,10 +154,19 @@ public class CheckInOut extends AnchorPane implements Updatable {
                 }
 
                 if (bedCheck.isSelected()) {
-                    if (emp.isInBed()) {  // if employee is in beddown status
-                        emp.setIsInBed(false);  // check out
+                    if (emp.getBed() == null) {
+                        bedCheck.setSelected(false);
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Pilsung Beddown");
+                        alert.setHeaderText("Unable to Check Member into Beddown");
+                        alert.setContentText("Airmen has no assigned bed.");
+                        alert.show();
                     } else {
-                        emp.setIsInBed(true);  // check in
+                        if (emp.isInBed()) {  // if employee is in beddown status
+                            emp.setIsInBed(false);  // check out
+                        } else {
+                            emp.setIsInBed(true);  // check in
+                        }
                     }
                 }
 

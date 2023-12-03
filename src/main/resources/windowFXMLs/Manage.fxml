@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <fx:root prefHeight="720.0" prefWidth="1025.0" style="-fx-background-color: #222222;" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView fx:id="empList" layoutX="327.0" layoutY="202.0" prefHeight="422.0" prefWidth="370.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
-      <Button fx:id="mngSelectedBtn" layoutX="437.0" layoutY="634.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Update/Manage Selected" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="376.0" layoutY="107.0" prefHeight="78.0" prefWidth="273.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="Currently Tracked Airmen">
+      <ListView fx:id="empList" layoutX="406.0" layoutY="208.0" prefHeight="422.0" prefWidth="370.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
+      <Button fx:id="mngSelectedBtn" layoutX="516.0" layoutY="640.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Update/Manage Selected" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="455.0" layoutY="113.0" prefHeight="78.0" prefWidth="273.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="Airmen">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="importAirmen" layoutX="771.0" layoutY="202.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Import Airmen" />
-      <Label alignment="TOP_LEFT" layoutX="728.0" layoutY="247.0" prefHeight="100.0" prefWidth="179.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="This feature will import Airmen saved from past exercise save files. None of the other data will load and duplicates will be ignored." wrapText="true" />
-      <Button fx:id="importAirmenOld" layoutX="756.0" layoutY="435.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Import Airmen (Old)" />
-      <Label alignment="TOP_LEFT" layoutX="728.0" layoutY="480.0" prefHeight="144.0" prefWidth="179.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="This feature will import saved Airmen data from saves made during the October 2023 Exercise. This is only relevant for 25 FGS. Only 4 people wont transfer. Duplicates that are already loaded will be ignored. Assigned beds are not imported." wrapText="true" />
-      <Label fx:id="importAirmenLabel" alignment="CENTER" layoutX="726.0" layoutY="176.0" prefHeight="18.0" prefWidth="179.0" styleClass="filler" stylesheets="@../cssStyles/myStyle.css" text="TEST" visible="false" />
-      <Label fx:id="importAirmenLabelOld" alignment="CENTER" layoutX="726.0" layoutY="413.0" prefHeight="18.0" prefWidth="179.0" styleClass="filler" stylesheets="@../cssStyles/myStyle.css" text="TEST" visible="false" />
+      <Button fx:id="importAirmen" layoutX="850.0" layoutY="208.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Import Airmen" />
+      <Label alignment="TOP_LEFT" layoutX="807.0" layoutY="253.0" prefHeight="100.0" prefWidth="179.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="This feature will import Airmen saved from past exercise save files. None of the other data will load and duplicates will be ignored." wrapText="true" />
+      <Button fx:id="importAirmenOld" layoutX="835.0" layoutY="441.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Import Airmen (Old)" />
+      <Label alignment="TOP_LEFT" layoutX="807.0" layoutY="486.0" prefHeight="144.0" prefWidth="179.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="This feature will import saved Airmen data from saves made during the October 2023 Exercise. This is only relevant for 25 FGS. Only 4 people wont transfer. Duplicates that are already loaded will be ignored. Assigned beds are not imported." wrapText="true" />
+      <Label fx:id="importAirmenLabel" alignment="CENTER" layoutX="807.0" layoutY="182.0" prefHeight="18.0" prefWidth="179.0" styleClass="filler" stylesheets="@../cssStyles/myStyle.css" text="TEST" visible="false" />
+      <Label fx:id="importAirmenLabelOld" alignment="CENTER" layoutX="807.0" layoutY="410.0" prefHeight="18.0" prefWidth="179.0" styleClass="filler" stylesheets="@../cssStyles/myStyle.css" text="TEST" visible="false" />
+      <Line endX="-100.0" endY="619.0" layoutX="475.0" layoutY="57.0" startX="-100.0" stroke="#10a93b" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="113.0" prefHeight="78.0" prefWidth="273.0" styleClass="textfield-design" stylesheets="@../cssStyles/myStyle.css" text="Beds">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ListView fx:id="bedList" layoutX="35.0" layoutY="308.0" prefHeight="322.0" prefWidth="308.0" styleClass="listView" stylesheets="@../cssStyles/myStyle.css" />
+      <RadioButton fx:id="allBed" layoutX="89.0" layoutY="212.0" mnemonicParsing="false" selected="true" text="ALL" textFill="#02b434">
+         <toggleGroup>
+            <ToggleGroup fx:id="GenderfMngScreen" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="maleBed" layoutX="152.0" layoutY="212.0" mnemonicParsing="false" text="MALE" textFill="#02b434" toggleGroup="$GenderfMngScreen" />
+      <RadioButton fx:id="femaleBed" layoutX="226.0" layoutY="212.0" mnemonicParsing="false" text="FEMALE" textFill="#02b434" toggleGroup="$GenderfMngScreen" />
+      <RadioButton fx:id="allAssigned" layoutX="60.0" layoutY="244.0" mnemonicParsing="false" selected="true" text="ALL" textFill="#02b434">
+         <toggleGroup>
+            <ToggleGroup fx:id="assignmetnType" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="assignedBeds" layoutX="121.0" layoutY="244.0" mnemonicParsing="false" text="ASSIGNED" textFill="#02b434" toggleGroup="$assignmetnType" />
+      <RadioButton fx:id="unassignedBeds" layoutX="215.0" layoutY="244.0" mnemonicParsing="false" text="UNASSIGNED" textFill="#02b434" toggleGroup="$assignmetnType" />
+      <CheckBox fx:id="InUseBeds" layoutX="148.0" layoutY="276.0" mnemonicParsing="false" text="IN USE" textFill="#02ae39" />
+      <Button fx:id="unassignBed" layoutX="239.0" layoutY="640.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Unassign Selected" />
+      <Button fx:id="importBeds" layoutX="27.0" layoutY="640.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Import From File" />
+      <Button fx:id="deleteBed" layoutX="135.0" layoutY="640.0" mnemonicParsing="false" styleClass="update-button-noSize" stylesheets="@../cssStyles/myStyle.css" text="Delete Selected" />
+      <Label fx:id="bedLabel" alignment="CENTER" layoutX="94.0" layoutY="677.0" prefHeight="18.0" prefWidth="179.0" styleClass="filler" stylesheets="@../cssStyles/myStyle.css" text="TEST" visible="false" />
    </children>
 </fx:root>
